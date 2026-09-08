@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kiran Ilyas — EM Simulation & AI/ML Engineer</title>
+  <meta name="description" content="EngD-qualified RF & Electromagnetic Simulation Engineer with AI/ML expertise. Industrial R&D at NXP Semiconductors. Specializing in mm-wave, EMC, and physics-informed deep learning." />
+  <meta property="og:title" content="Kiran Ilyas — EM Simulation & AI/ML Engineer" />
+  <meta property="og:description" content="EngD-qualified RF & Electromagnetic Simulation Engineer with AI/ML expertise, specializing in mm-wave, EMC, and physics-informed deep learning." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:    #0D1B2A;
+      --slate:   #1E3A5F;
+      --teal:    #00C2B2;
+      --teal-dk: #009E90;
+      --bg:      #F5F7FA;
+      --white:   #FFFFFF;
+      --muted:   #8A9BB0;
+      --border:  #D4DCE8;
+      --text:    #1A2B3C;
+      --card-bg: #FFFFFF;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
+
+    /* ─── Nav ─── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(13, 27, 42, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 194, 178, 0.15);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-name {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .nav-name span { color: var(--teal); }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); text-decoration: none; }
+    .nav-cta {
+      background: var(--teal);
+      color: var(--navy) !important;
+      padding: 7px 16px;
+      border-radius: 4px;
+      font-weight: 600 !important;
+      font-size: 13px !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--teal-dk) !important; color: var(--white) !important; }
+    .nav-mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: white;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    /* ─── Hero ─── */
+    #hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 100px 5% 80px;
+    }
+    .hero-field {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.07;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+    .hero-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: var(--teal);
+      margin-bottom: 22px;
+      text-transform: uppercase;
+    }
+    .hero-name {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(48px, 7vw, 88px);
+      color: var(--white);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 28px;
+    }
+    .hero-title {
+      font-size: clamp(16px, 2.2vw, 22px);
+      color: var(--teal);
+      font-weight: 500;
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+    .hero-value {
+      font-size: clamp(15px, 1.6vw, 18px);
+      color: rgba(255,255,255,0.72);
+      max-width: 600px;
+      margin-bottom: 44px;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+    .hero-value strong { color: rgba(255,255,255,0.92); font-weight: 500; }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .btn-primary {
+      background: var(--teal);
+      color: var(--navy);
+      padding: 13px 28px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background: var(--teal-dk);
+      color: var(--white);
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      border: 1.5px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.85);
+      padding: 13px 28px;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-secondary:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 52px;
+    }
+    .hero-badge {
+      border: 1px solid rgba(0,194,178,0.25);
+      background: rgba(0,194,178,0.07);
+      color: rgba(255,255,255,0.6);
+      padding: 5px 12px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* ─── Section Shell ─── */
+    .section {
+      padding: 88px 5%;
+    }
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 52px;
+      line-height: 1.65;
+    }
+    .section-alt { background: var(--navy); }
+    .section-alt .section-title { color: var(--white); }
+    .section-alt .section-sub { color: rgba(255,255,255,0.55); }
+    .section-light { background: var(--white); }
+
+    /* ─── Divider ─── */
+    .teal-line {
+      width: 44px; height: 3px;
+      background: var(--teal);
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+
+    /* ─── Metrics Strip ─── */
+    #metrics {
+      background: var(--slate);
+      padding: 52px 5%;
+    }
+    .metrics-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .metric {
+      padding: 36px 28px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .metric:last-child { border-right: none; }
+    .metric-num {
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1;
+      font-feature-settings: 'tnum';
+      margin-bottom: 8px;
+    }
+    .metric-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    /* ─── About ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .about-text p {
+      font-size: 17px;
+      color: var(--text);
+      margin-bottom: 20px;
+      line-height: 1.78;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-sidebar {}
+    .sidebar-block {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .sidebar-block h4 {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal);
+      margin-bottom: 14px;
+    }
+    .sidebar-block ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .sidebar-block li {
+      font-size: 14px;
+      color: var(--text);
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.4;
+    }
+    .sidebar-block li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 5px;
+      height: 5px;
+      background: var(--teal);
+      border-radius: 50%;
+    }
+
+    /* ─── Value Pillars ─── */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .pillar {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(0,194,178,0.15);
+      border-radius: 6px;
+      padding: 32px 28px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .pillar:hover {
+      border-color: rgba(0,194,178,0.4);
+      background: rgba(0,194,178,0.06);
+    }
+    .pillar-icon {
+      font-size: 28px;
+      margin-bottom: 18px;
+      display: block;
+    }
+    .pillar-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .pillar-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+    }
+    .pillar-tools {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tool-tag {
+      font-size: 11px;
+      background: rgba(0,194,178,0.1);
+      color: var(--teal);
+      border: 1px solid rgba(0,194,178,0.2);
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+
+    /* ─── Experience ─── */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .exp-meta {}
+    .exp-period {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--teal);
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+    .exp-company {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .exp-location {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .exp-context-tag {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 11px;
+      background: rgba(0,194,178,0.1);
+      color: var(--teal);
+      border: 1px solid rgba(0,194,178,0.25);
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+    .exp-body {}
+    .exp-role {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .exp-summary {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+    .exp-achievements {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .exp-achievements li {
+      font-size: 14px;
+      color: var(--text);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.55;
+    }
+    .exp-achievements li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px; height: 6px;
+      background: var(--teal);
+      border-radius: 1px;
+      transform: rotate(45deg);
+    }
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+    .exp-tag {
+      font-size: 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--slate);
+      padding: 3px 9px;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+
+    /* ─── Case Studies ─── */
+    .case-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .case-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--white);
+    }
+    .case-header {
+      padding: 28px 32px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      user-select: none;
+      transition: background 0.15s;
+    }
+    .case-header:hover { background: var(--bg); }
+    .case-header-left {}
+    .case-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+    .case-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+    .case-tagline {
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .case-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .case-tag {
+      font-size: 11px;
+      background: rgba(0,194,178,0.08);
+      border: 1px solid rgba(0,194,178,0.2);
+      color: var(--teal);
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+    .case-chevron {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border: 1.5px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 14px;
+      transition: transform 0.25s, border-color 0.2s, color 0.2s;
+    }
+    .case-item.open .case-chevron {
+      transform: rotate(180deg);
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+    .case-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .case-item.open .case-body {
+      max-height: 2000px;
+    }
+    .case-content {
+      padding: 0 32px 36px;
+      border-top: 1px solid var(--border);
+    }
+    .case-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 28px;
+    }
+    .case-block {}
+    .case-block-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+    .case-block p, .case-block li {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .case-block ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .case-block li {
+      padding-left: 14px;
+      position: relative;
+    }
+    .case-block li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px;
+      width: 5px; height: 5px;
+      background: var(--teal);
+      border-radius: 50%;
+    }
+    .case-outcome-box {
+      margin-top: 28px;
+      background: rgba(0,194,178,0.06);
+      border: 1px solid rgba(0,194,178,0.2);
+      border-radius: 5px;
+      padding: 20px 24px;
+    }
+    .case-outcome-box h5 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+    .case-outcome-box p {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* ─── Skills ─── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .skill-group {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 28px;
+    }
+    .skill-group-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .skill-group-title span {
+      font-size: 18px;
+    }
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .skill-pill {
+      font-size: 13px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    .skill-pill.primary {
+      background: rgba(0,194,178,0.09);
+      border-color: rgba(0,194,178,0.25);
+      color: var(--slate);
+    }
+
+    /* ─── Education ─── */
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .edu-item {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .edu-icon {
+      font-size: 28px;
+      padding-top: 4px;
+    }
+    .edu-degree {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+    .edu-institution {
+      font-size: 14px;
+      color: var(--teal);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+    .edu-meta {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 10px;
+    }
+    .edu-note {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+    .edu-honor {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0,194,178,0.12);
+      border: 1px solid rgba(0,194,178,0.25);
+      color: var(--teal);
+      padding: 4px 10px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    /* ─── Publications ─── */
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .pub-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 6px 6px 0;
+      padding: 20px 24px;
+    }
+    .pub-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+      line-height: 1.45;
+    }
+    .pub-meta {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .pub-meta span {
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    /* ─── Opportunities ─── */
+    .opps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .opp-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 22px 24px;
+      background: var(--white);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .opp-item:hover {
+      border-color: var(--teal);
+      box-shadow: 0 4px 20px rgba(0,194,178,0.08);
+    }
+    .opp-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .opp-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 5px;
+      letter-spacing: -0.01em;
+    }
+    .opp-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ─── Contact ─── */
+    #contact {
+      background: var(--navy);
+      padding: 88px 5%;
+    }
+    .contact-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-left .section-title { color: var(--white); }
+    .contact-text {
+      font-size: 17px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: rgba(255,255,255,0.75);
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+    .contact-link:hover { color: var(--teal); text-decoration: none; }
+    .contact-link-icon {
+      width: 40px; height: 40px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      transition: border-color 0.2s;
+    }
+    .contact-link:hover .contact-link-icon { border-color: var(--teal); }
+    .contact-right {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 36px;
+    }
+    .contact-right h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .contact-right p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .contact-row {
+      margin-bottom: 16px;
+    }
+    .contact-row label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .contact-row input, .contact-row textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 4px;
+      padding: 11px 14px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .contact-row input:focus, .contact-row textarea:focus {
+      border-color: var(--teal);
+    }
+    .contact-row textarea { height: 100px; resize: vertical; }
+    .contact-row input::placeholder, .contact-row textarea::placeholder {
+      color: rgba(255,255,255,0.25);
+    }
+    .contact-submit {
+      background: var(--teal);
+      color: var(--navy);
+      border: none;
+      padding: 13px 28px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s;
+    }
+    .contact-submit:hover { background: var(--teal-dk); color: var(--white); }
+
+    /* ─── Footer ─── */
+    footer {
+      background: #080F18;
+      padding: 28px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-name {
+      font-size: 14px;
+      color: rgba(255,255,255,0.3);
+    }
+    .footer-name strong { color: rgba(255,255,255,0.6); }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--teal); text-decoration: none; }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 60px; left: 0; right: 0;
+        background: var(--navy);
+        padding: 24px 5%;
+        border-bottom: 1px solid rgba(0,194,178,0.15);
+        gap: 4px;
+      }
+      .nav-links.open a { font-size: 15px; padding: 10px 0; }
+      .nav-mobile-toggle { display: block; }
+      .nav-cta { display: none; }
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+      .metric { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .metric:nth-child(2n) { border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .metric:last-child, .metric:nth-last-child(2):nth-child(2n+1) { border-bottom: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 16px; }
+      .case-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .opps-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 600px) {
+      .section { padding: 64px 5%; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-secondary { text-align: center; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .case-header { padding: 20px; }
+      .case-content { padding: 0 20px 28px; }
+      .edu-item { grid-template-columns: 1fr; gap: 12px; }
+    }
+
+    /* ─── Accessibility ─── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+    :focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════ -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-name">Kiran <span>Ilyas</span></div>
+  <button class="nav-mobile-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#opportunities">Open to</a></li>
+    <li><a href="mailto:k.ilyas8593@gmail.com" class="nav-cta">Get in touch</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════ -->
+<section id="hero" aria-label="Introduction">
+  <!-- EM field background — faint concentric arcs representing near-field radiation -->
+  <svg class="hero-field" viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="none" stroke="#00C2B2" stroke-width="1">
+      <ellipse cx="1150" cy="450" rx="80" ry="120"/>
+      <ellipse cx="1150" cy="450" rx="160" ry="240"/>
+      <ellipse cx="1150" cy="450" rx="240" ry="360"/>
+      <ellipse cx="1150" cy="450" rx="320" ry="480"/>
+      <ellipse cx="1150" cy="450" rx="420" ry="600"/>
+      <ellipse cx="1150" cy="450" rx="540" ry="720"/>
+      <ellipse cx="1150" cy="450" rx="680" ry="860"/>
+      <!-- field lines -->
+      <path d="M1150,330 Q980,360 900,450 Q980,540 1150,570" stroke-dasharray="4 6"/>
+      <path d="M1150,310 Q940,350 840,450 Q940,550 1150,590" stroke-dasharray="4 6"/>
+      <path d="M1150,290 Q880,340 780,450 Q880,560 1150,610" stroke-dasharray="4 6"/>
+    </g>
+  </svg>
+
+  <div class="hero-content">
+    <p class="hero-label">RF · Electromagnetics · AI/ML · Semiconductors</p>
+    <h1 class="hero-name">Kiran Ilyas</h1>
+    <p class="hero-title">EM Simulation &amp; AI/ML Engineer<br>mm-Wave · EMC · Deep Learning · EngD TU/e</p>
+    <p class="hero-value">
+      I bridge <strong>physics-based electromagnetic simulation</strong> and <strong>AI/ML modeling</strong> to solve problems that conventional simulation alone cannot address efficiently. Trained at TU/e and proven at NXP Semiconductors in EU 5G/6G research at 100 GHz. I build the tools that help engineers go faster without sacrificing accuracy.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">See My Work</a>
+      <a href="#experience" class="btn-secondary">View Experience</a>
+      <a href="mailto:k.ilyas8593@gmail.com" class="btn-secondary">Get in Touch</a>
+    </div>
+    <div class="hero-badges">
+      <span class="hero-badge">ANSYS HFSS</span>
+      <span class="hero-badge">Keysight ADS</span>
+      <span class="hero-badge">PyTorch</span>
+      <span class="hero-badge">mm-Wave 100 GHz</span>
+      <span class="hero-badge">EMC / EMI</span>
+      <span class="hero-badge">NXP Semiconductors</span>
+      <span class="hero-badge">EU INNOSTAR 5G/6G</span>
+      <span class="hero-badge">Eindhoven, Netherlands</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ METRICS ═══════════════════════════════════════ -->
+<div id="metrics" role="region" aria-label="Profile at a glance">
+  <div class="metrics-grid">
+    <div class="metric">
+      <div class="metric-num">5+</div>
+      <div class="metric-label">Years research &amp;<br>engineering experience</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">100</div>
+      <div class="metric-label">GHz — mm-wave<br>simulation frontier</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">4</div>
+      <div class="metric-label">Peer-reviewed<br>publications</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">3</div>
+      <div class="metric-label">EM simulation<br>platforms (HFSS · ADS · CST)</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ═════════════════════════════════════════ -->
+<section id="about" class="section section-light" aria-label="About">
+  <div class="section-inner">
+    <p class="section-label">Background</p>
+    <div class="teal-line"></div>
+    <h2 class="section-title">Precision simulation.<br>Practical intelligence.</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm an RF and electromagnetic simulation engineer with a specialization that sits at the intersection of high-frequency physics and applied machine learning. My work focuses on problems where traditional full-wave simulation is too slow for practical use, and where AI/ML can be trained to replicate its accuracy at a fraction of the compute cost.</p>
+        <p>My industrial R&D experience at <strong>NXP Semiconductors</strong> — through an EU-funded INNOSTAR consortium project focused on 5G and 6G connectivity — involved building a complete AI/ML pipeline to predict far-field radiation patterns from near-field IC data. This was a requirements-driven, end-to-end project: from problem definition and simulation methodology through deep-learning model development, verification, and formal consortium reporting.</p>
+        <p>My technical foundation spans the main professional EM simulation environments — ANSYS HFSS, Keysight ADS, and CST Studio Suite — used across FEM and Method of Moments solvers. I've developed deep-learning architectures (CNN, U-Net) in PyTorch and built the data preprocessing pipelines that make them trainable from simulation outputs. Before that, I spent two years on integrated photonics research, designing dispersion-engineered waveguides published in international journals.</p>
+        <p>I'm currently based in Eindhoven and open to roles in EM simulation, EMC engineering, AI/ML for physics applications, and 5G/6G RF research — at semiconductor companies, applied research institutes, and EDA firms.</p>
+      </div>
+      <div class="about-sidebar">
+        <div class="sidebar-block">
+          <h4>Currently targeting</h4>
+          <ul>
+            <li>EM / RF Simulation Engineer</li>
+            <li>EMC Simulation Engineer</li>
+            <li>5G/6G RF Research Engineer</li>
+            <li>AI/ML Engineer — Physics Simulation</li>
+            <li>EDA Application Engineer</li>
+          </ul>
+        </div>
+        <div class="sidebar-block">
+          <h4>Quick facts</h4>
+          <ul>
+            <li>EngD, TU/e Eindhoven (2024–2026)</li>
+            <li>M.Phil. Electronics, 4.0 GPA, Gold Medal</li>
+            <li>Industrial R&D at NXP Semiconductors</li>
+            <li>4 publications · 1 pending journal submission</li>
+            <li>IEEE Women in Engineering event lead</li>
+            <li>English C1 · Dutch A1 (developing)</li>
+            <li>Available: Eindhoven + remote EU</li>
+          </ul>
+        </div>
+        <div class="sidebar-block">
+          <h4>References available from</h4>
+          <ul>
+            <li>Principal Scientist — NXP Semiconductors</li>
+            <li>Principal Engineer EMC — NXP Semiconductors</li>
+            <li>Faculty — TU/e Dept. Electrical Engineering</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VALUE PILLARS ════════════════════════════════ -->
+<section id="value" class="section section-alt" aria-label="Value proposition">
+  <div class="section-inner">
+    <p class="section-label">What I bring</p>
+    <div class="teal-line" style="background:var(--teal)"></div>
+    <h2 class="section-title" style="color:var(--white)">Six ways I create value<br>for engineering teams</h2>
+    <p class="section-sub">Every capability below is evidenced by specific work — not claimed from a keyword list.</p>
+    <div class="pillars-grid">
+
+      <div class="pillar">
+        <span class="pillar-icon">〰</span>
+        <h3 class="pillar-title">mm-Wave EM Simulation at Scale</h3>
+        <p class="pillar-text">Full-wave simulation of small radiating RFIC structures from 10–100 GHz. Near-field and far-field characterization. Cross-solver benchmarking between FEM and MoM solvers for result validation.</p>
+        <div class="pillar-tools">
+          <span class="tool-tag">ANSYS HFSS</span><span class="tool-tag">Keysight ADS</span><span class="tool-tag">CST Studio</span><span class="tool-tag">COMSOL</span>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <span class="pillar-icon">🧠</span>
+        <h3 class="pillar-title">Physics-Informed Deep Learning</h3>
+        <p class="pillar-text">End-to-end ML pipelines for field prediction tasks: data generation via DOE, preprocessing, model development (CNN, U-Net), and systematic verification against full-wave references.</p>
+        <div class="pillar-tools">
+          <span class="tool-tag">PyTorch</span><span class="tool-tag">CNN</span><span class="tool-tag">U-Net</span><span class="tool-tag">NumPy</span><span class="tool-tag">MATLAB</span>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <span class="pillar-icon">📡</span>
+        <h3 class="pillar-title">EMC Pre-Compliance Modeling</h3>
+        <p class="pillar-text">Simulation-driven EMC verification for integrated circuits. Near-field to far-field prediction pipelines that reduce the need for costly chamber measurements in early design phases.</p>
+        <div class="pillar-tools">
+          <span class="tool-tag">EMC/EMI</span><span class="tool-tag">NF-FF Modeling</span><span class="tool-tag">Radiated Emissions</span>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <span class="pillar-icon">🔬</span>
+        <h3 class="pillar-title">Design of Experiments &amp; Parametric Studies</h3>
+        <p class="pillar-text">Systematic DOE using ANSYS optiSLang to generate geometry-diverse simulation datasets. Parametric variation and sensitivity analysis for ML training data generation.</p>
+        <div class="pillar-tools">
+          <span class="tool-tag">ANSYS optiSLang</span><span class="tool-tag">DOE</span><span class="tool-tag">Parametric Simulation</span>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <span class="pillar-icon">🔗</span>
+        <h3 class="pillar-title">End-to-End Project Ownership</h3>
+        <p class="pillar-text">Full project lifecycle from problem definition and methodology scoping through execution, milestone tracking, consortium reporting, and NXP-approved publication manuscript preparation.</p>
+        <div class="pillar-tools">
+          <span class="tool-tag">EU Consortium R&D</span><span class="tool-tag">Milestone Tracking</span><span class="tool-tag">Technical Reporting</span>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <span class="pillar-icon">🌐</span>
+        <h3 class="pillar-title">Integrated Photonics Modeling</h3>
+        <p class="pillar-text">Dispersion-engineered waveguide design for supercontinuum generation. Nonlinear pulse dynamics and EM wave propagation modeling, resulting in three published peer-reviewed papers.</p>
+        <div class="pillar-tools">
+          <span class="tool-tag">COMSOL</span><span class="tool-tag">MATLAB</span><span class="tool-tag">Lithium Niobate</span><span class="tool-tag">Si₃N₄</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE ════════════════════════════════════ -->
+<section id="experience" class="section" aria-label="Professional experience">
+  <div class="section-inner">
+    <p class="section-label">Career</p>
+    <div class="teal-line"></div>
+    <h2 class="section-title">Experience</h2>
+    <p class="section-sub">Industry R&D, team leadership, and academic research — all within high-frequency electromagnetics and applied ML.</p>
+
+    <div class="exp-list">
+
+      <!-- NXP -->
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Mar 2024 – Dec 2025</div>
+          <div class="exp-company">NXP Semiconductors<br>/ TU/e</div>
+          <div class="exp-location">Eindhoven, Netherlands</div>
+          <span class="exp-context-tag">EU INNOSTAR · 5G/6G</span>
+        </div>
+        <div class="exp-body">
+          <h3 class="exp-role">R&D Engineer — Computational Electromagnetics &amp; AI/ML Modeling</h3>
+          <p class="exp-summary">Dual-affiliation industrial research role within the EU-funded INNOSTAR consortium, developing a novel AI/ML pipeline to address a critical measurement gap in mm-wave RFIC electromagnetic compliance workflows. Responsible for the full project from scope definition to final deliverables.</p>
+          <ul class="exp-achievements">
+            <li>Benchmarked mm-wave radiating structures at 100 GHz across ANSYS HFSS (FEM) and Keysight ADS (FEM &amp; MoM), comparing radiation patterns, S-parameters, and solver behaviour across a 10–100 GHz frequency range.</li>
+            <li>Designed and executed a parametric DOE study using ANSYS optiSLang on two-layer stackup structures, producing a geometry-diverse simulation dataset to train ML models.</li>
+            <li>Developed CNN and U-Net architectures in PyTorch for NF-to-FF field prediction, with systematic V&amp;V benchmarked against full-wave simulation references across multiple loss functions.</li>
+            <li>Built Python/NumPy data preprocessing pipelines to structure large-scale simulation datasets into clean input-output pairs for deep-learning model training.</li>
+            <li>Managed milestone tracking, consortium reporting, and produced an NXP-approved journal manuscript for international publication.</li>
+            <li>Presented methodology updates and results to academic and industrial project partners throughout the project lifecycle.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">ANSYS HFSS</span>
+            <span class="exp-tag">Keysight ADS</span>
+            <span class="exp-tag">ANSYS optiSLang</span>
+            <span class="exp-tag">PyTorch</span>
+            <span class="exp-tag">CNN / U-Net</span>
+            <span class="exp-tag">FEM / MoM</span>
+            <span class="exp-tag">Python</span>
+            <span class="exp-tag">mm-Wave</span>
+            <span class="exp-tag">EMC</span>
+            <span class="exp-tag">DOE</span>
+            <span class="exp-tag">HPC / Linux</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- VDL Kalima -->
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Nov 2024 – Feb 2025</div>
+          <div class="exp-company">VDL Kalima</div>
+          <div class="exp-location">Eindhoven, Netherlands</div>
+          <span class="exp-context-tag">EngD Industrial Project</span>
+        </div>
+        <div class="exp-body">
+          <h3 class="exp-role">Project Team Coordinator</h3>
+          <p class="exp-summary">Led a multidisciplinary engineering project team within the TU/e EngD industrial environment. Coordinated planning, task distribution, component procurement, budget monitoring, and stakeholder communication.</p>
+          <ul class="exp-achievements">
+            <li>Managed planning, milestone tracking, and task coordination across a multidisciplinary team in an industrial project environment.</li>
+            <li>Handled component ordering, budget monitoring, and stakeholder communication with the industrial partner.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Project Management</span>
+            <span class="exp-tag">Team Coordination</span>
+            <span class="exp-tag">Stakeholder Comms</span>
+            <span class="exp-tag">Budget Monitoring</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- QAU Photonics -->
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">2021 – 2023</div>
+          <div class="exp-company">Quaid-i-Azam University</div>
+          <div class="exp-location">Islamabad, Pakistan</div>
+          <span class="exp-context-tag">Academic Research</span>
+        </div>
+        <div class="exp-body">
+          <h3 class="exp-role">Researcher — Nonlinear Optics &amp; Integrated Photonics</h3>
+          <p class="exp-summary">Designed, characterized, and optimized dispersion-engineered photonic integrated waveguides for broadband supercontinuum generation across mid- and far-IR spectral regions. Work resulted in three published papers including a journal article and an Optica conference contribution.</p>
+          <ul class="exp-achievements">
+            <li>Designed lithium niobate and silicon-rich nitride photonic waveguides for supercontinuum generation spanning three octaves across mid- and far-IR regions.</li>
+            <li>Modelled EM wave propagation, nonlinear pulse dynamics, and dispersive-wave generation using COMSOL Multiphysics and MATLAB.</li>
+            <li>Published research in <em>Journal of Electromagnetic Waves and Applications</em>, <em>Optik</em>, and the <em>Optica Advanced Photonics Congress</em>.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">COMSOL Multiphysics</span>
+            <span class="exp-tag">MATLAB</span>
+            <span class="exp-tag">Integrated Photonics</span>
+            <span class="exp-tag">Lithium Niobate</span>
+            <span class="exp-tag">Si₃N₄ Waveguides</span>
+            <span class="exp-tag">Nonlinear Optics</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CASE STUDIES ══════════════════════════════════ -->
+<section id="projects" class="section section-light" aria-label="Featured work">
+  <div class="section-inner">
+    <p class="section-label">Selected Work</p>
+    <div class="teal-line"></div>
+    <h2 class="section-title">Case Studies</h2>
+    <p class="section-sub">Real engineering problems, real methodologies. Click any project to read the full story.</p>
+
+    <div class="case-list">
+
+      <!-- Case Study 1 -->
+      <div class="case-item" id="cs1">
+        <div class="case-header" onclick="toggleCase('cs1')" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCase('cs1')">
+          <div class="case-header-left">
+            <div class="case-num">Project 01 · NXP Semiconductors / TU/e</div>
+            <div class="case-title">AI/ML Pipeline for mm-Wave EMC Prediction</div>
+            <div class="case-tagline">Replacing full-wave simulation with deep learning for near-field to far-field mapping in RFIC EMC workflows</div>
+            <div class="case-tags">
+              <span class="case-tag">Deep Learning</span>
+              <span class="case-tag">EMC</span>
+              <span class="case-tag">PyTorch</span>
+              <span class="case-tag">HFSS</span>
+              <span class="case-tag">5G/6G</span>
+            </div>
+          </div>
+          <div class="case-chevron" aria-hidden="true">▾</div>
+        </div>
+        <div class="case-body">
+          <div class="case-content">
+            <div class="case-grid">
+              <div class="case-block">
+                <div class="case-block-title">Context</div>
+                <p>Within the EU-funded INNOSTAR consortium — a European initiative for 5G and 6G semiconductor connectivity and radar applications — NXP Semiconductors needed to address a measurement gap in their mm-wave RFIC electromagnetic compliance process. Near-field (NF) data from integrated circuits was available; corresponding far-field (FF) radiation data for EMC verification was not directly accessible without costly full-wave simulation runs.</p>
+              </div>
+              <div class="case-block">
+                <div class="case-block-title">Challenge</div>
+                <p>Full-wave electromagnetic simulation at 100 GHz is computationally intensive and time-consuming. Running HFSS or ADS for every IC geometry variant during EMC pre-compliance screening is impractical. The project required a methodology that could accurately predict far-field radiation patterns from near-field inputs — fast enough to be useful during design iterations.</p>
+              </div>
+              <div class="case-block">
+                <div class="case-block-title">My Role</div>
+                <p>I owned the complete project — from defining the research scope and simulation methodology to executing all technical work packages, building and validating the ML pipeline, and delivering consortium reports and the final NXP-approved publication manuscript. All technical work was carried out personally.</p>
+              </div>
+              <div class="case-block">
+                <div class="case-block-title">Approach</div>
+                <ul>
+                  <li>Benchmarked mm-wave radiating structures (10–100 GHz) across HFSS and ADS using FEM and MoM solvers to establish simulation reference data</li>
+                  <li>Designed a parametric DOE study (ANSYS optiSLang) on two-layer stackup geometries to generate a diverse training dataset</li>
+                  <li>Built Python/NumPy preprocessing pipelines to structure NF/FF simulation outputs into clean ML input-output pairs</li>
+                  <li>Developed and compared CNN and U-Net architectures in PyTorch, evaluated across multiple loss functions</li>
+                  <li>Performed systematic V&amp;V by benchmarking model predictions against full-wave HFSS references</li>
+                </ul>
+              </div>
+            </div>
+            <div class="case-grid">
+              <div class="case-block">
+                <div class="case-block-title">Tools &amp; Skills</div>
+                <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:4px;">
+                  <span class="case-tag">ANSYS HFSS (FEM)</span>
+                  <span class="case-tag">Keysight ADS (FEM/MoM)</span>
+                  <span class="case-tag">ANSYS optiSLang</span>
+                  <span class="case-tag">PyTorch</span>
+                  <span class="case-tag">CNN / U-Net</span>
+                  <span class="case-tag">Python / NumPy</span>
+                  <span class="case-tag">HPC / Linux</span>
+                  <span class="case-tag">DOE</span>
+                  <span class="case-tag">V&amp;V Methodology</span>
+                </div>
+              </div>
+              <div class="case-block">
+                <div class="case-block-title">Skills Demonstrated</div>
+                <ul>
+                  <li>End-to-end R&D project ownership in an industrial consortium</li>
+                  <li>Physics-informed ML pipeline development</li>
+                  <li>Cross-solver EM simulation benchmarking</li>
+                  <li>EU consortium reporting and formal deliverable preparation</li>
+                  <li>Communication of novel computational workflows to industrial and academic stakeholders</li>
+                </ul>
+              </div>
+            </div>
+            <div class="case-outcome-box">
+              <h5>Outcome &amp; Impact</h5>
+              <p>Delivered a working AI/ML pipeline that predicts far-field radiation from near-field inputs, demonstrated as a computationally efficient alternative to full-wave EM simulation. Pipeline validated against HFSS reference data. Work resulted in an NXP-approved journal manuscript prepared for international submission — directly advancing the state of the art in EMC modeling for mm-wave integrated circuits. <em>[Note: quantitative accuracy metrics can be added once publication is submitted/accepted.]</em></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study 2 -->
+      <div class="case-item" id="cs2">
+        <div class="case-header" onclick="toggleCase('cs2')" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCase('cs2')">
+          <div class="case-header-left">
+            <div class="case-num">Project 02 · NXP Semiconductors / TU/e</div>
+            <div class="case-title">Cross-Solver Benchmarking at mm-Wave Frequencies</div>
+            <div class="case-tagline">Systematic validation of FEM vs. MoM solvers for mm-wave RFIC radiated emission analysis at 100 GHz</div>
+            <div class="case-tags">
+              <span class="case-tag">HFSS</span>
+              <span class="case-tag">ADS</span>
+              <span class="case-tag">FEM/MoM</span>
+              <span class="case-tag">Validation</span>
+              <span class="case-tag">100 GHz</span>
+            </div>
+          </div>
+          <div class="case-chevron" aria-hidden="true">▾</div>
+        </div>
+        <div class="case-body">
+          <div class="case-content">
+            <div class="case-grid">
+              <div class="case-block">
+                <div class="case-block-title">Context</div>
+                <p>Accurate electromagnetic simulation at mm-wave frequencies is critical for RFIC design and EMC compliance, but different simulation tools use different numerical methods (FEM and Method of Moments) that can produce divergent results if not properly understood. Before building ML models trained on simulation data, the reliability of that data had to be established.</p>
+              </div>
+              <div class="case-block">
+                <div class="case-block-title">Challenge</div>
+                <p>At 100 GHz, small geometric differences and solver-specific numerical choices can produce meaningfully different near-field and far-field results. Without systematic benchmarking, simulation data used to train ML models may carry solver-specific biases rather than physical ground truth.</p>
+              </div>
+              <div class="case-block">
+                <div class="case-block-title">Approach</div>
+                <ul>
+                  <li>Selected representative mm-wave small radiating structures as test vehicles</li>
+                  <li>Simulated NF and FF radiated emission in ANSYS HFSS (FEM) and Keysight ADS (FEM and MoM) across 10–100 GHz</li>
+                  <li>Systematically compared radiation patterns, S-parameters, and near-field distributions across both solvers</li>
+                  <li>Assessed solver consistency and identified conditions where FEM and MoM results diverge</li>
+                  <li>Documented findings to inform subsequent ML training data selection</li>
+                </ul>
+              </div>
+              <div class="case-block">
+                <div class="case-block-title">Skills Demonstrated</div>
+                <ul>
+                  <li>Advanced proficiency in ANSYS HFSS and Keysight ADS as both FEM and MoM environments</li>
+                  <li>Rigorous V&amp;V methodology applied to simulation outputs</li>
+                  <li>Understanding of numerical method trade-offs in high-frequency EM simulation</li>
+                  <li>Systematic scientific documentation and reporting</li>
+                </ul>
+              </div>
+            </div>
+            <div class="case-outcome-box">
+              <h5>Outcome</h5>
+              <p>Established a validated simulation baseline that confirmed solver consistency conditions for the subsequent ML training data generation pipeline. The benchmarking methodology itself represents reusable validation infrastructure for future mm-wave RFIC EM analysis at NXP and beyond.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study 3 -->
+      <div class="case-item" id="cs3">
+        <div class="case-header" onclick="toggleCase('cs3')" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCase('cs3')">
+          <div class="case-header-left">
+            <div class="case-num">Project 03 · Quaid-i-Azam University</div>
+            <div class="case-title">Dispersion-Engineered Photonic Waveguides for Supercontinuum Generation</div>
+            <div class="case-tagline">Designing mid-IR and far-IR broadband light sources using integrated lithium niobate and silicon-rich nitride waveguides</div>
+            <div class="case-tags">
+              <span class="case-tag">Integrated Photonics</span>
+              <span class="case-tag">COMSOL</span>
+              <span class="case-tag">Nonlinear Optics</span>
+              <span class="case-tag">Published Research</span>
+            </div>
+          </div>
+          <div class="case-chevron" aria-hidden="true">▾</div>
+        </div>
+        <div class="case-body">
+          <div class="case-content">
+            <div class="case-grid">
+              <div class="case-block">
+                <div class="case-block-title">Context</div>
+                <p>Broadband supercontinuum light sources in the mid- and far-infrared are critical for molecular spectroscopy, medical diagnostics, and environmental sensing. Photonic integrated waveguides offer a compact, chip-scale approach — but achieving broad spectral coverage requires precise engineering of the waveguide's dispersion profile.</p>
+              </div>
+              <div class="case-block">
+                <div class="case-block-title">Challenge</div>
+                <p>Designing waveguide geometries that simultaneously support anomalous dispersion (necessary for soliton-based supercontinuum generation), low propagation loss, and broad spectral coverage across multiple octaves. The design space is highly nonlinear and not analytically tractable — requiring systematic numerical optimization.</p>
+              </div>
+              <div class="case-block">
+                <div class="case-block-title">Approach</div>
+                <ul>
+                  <li>Modelled EM field distributions and dispersion profiles using COMSOL Multiphysics finite element simulation</li>
+                  <li>Designed dual-core and Z-cut geometries in lithium niobate and silicon-rich nitride to engineer group velocity dispersion</li>
+                  <li>Simulated nonlinear pulse propagation and supercontinuum generation dynamics in MATLAB using the generalized nonlinear Schrödinger equation</li>
+                  <li>Achieved three-octave spectral coverage and tunable dispersive wave generation in the mid-IR and far-IR</li>
+                </ul>
+              </div>
+              <div class="case-block">
+                <div class="case-block-title">Skills Demonstrated</div>
+                <ul>
+                  <li>Photonic waveguide design and COMSOL-based EM simulation</li>
+                  <li>Nonlinear optical modelling and pulse propagation simulation</li>
+                  <li>Scientific writing and international journal publication</li>
+                  <li>Independent research from conception to published outcome</li>
+                </ul>
+              </div>
+            </div>
+            <div class="case-outcome-box">
+              <h5>Outcome</h5>
+              <p>Designed photonic waveguides achieving three-octave supercontinuum spanning and tunable dispersive wave generation across mid- and far-IR regions. Results published in the <em>Journal of Electromagnetic Waves and Applications</em> (2024), <em>Optik</em> (2022), and presented at the <em>Optica Advanced Photonics Congress</em> (2022).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SKILLS ═════════════════════════════════════════ -->
+<section id="skills" class="section" aria-label="Skills and expertise">
+  <div class="section-inner">
+    <p class="section-label">Expertise</p>
+    <div class="teal-line"></div>
+    <h2 class="section-title">Skills &amp; Tools</h2>
+    <p class="section-sub">Grouped by domain — focused on the capabilities most relevant to target roles.</p>
+
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title"><span>〰</span> EM Simulation</div>
+        <div class="skill-pills">
+          <span class="skill-pill primary">ANSYS HFSS</span>
+          <span class="skill-pill primary">Keysight ADS</span>
+          <span class="skill-pill primary">CST Studio Suite</span>
+          <span class="skill-pill primary">COMSOL Multiphysics</span>
+          <span class="skill-pill">ANSYS optiSLang</span>
+          <span class="skill-pill">FEM</span>
+          <span class="skill-pill">Method of Moments</span>
+          <span class="skill-pill">Cadence Virtuoso</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title"><span>🧠</span> AI &amp; Machine Learning</div>
+        <div class="skill-pills">
+          <span class="skill-pill primary">PyTorch</span>
+          <span class="skill-pill primary">CNN</span>
+          <span class="skill-pill primary">U-Net</span>
+          <span class="skill-pill">MLP</span>
+          <span class="skill-pill">Physics-informed ML</span>
+          <span class="skill-pill">V&amp;V for ML models</span>
+          <span class="skill-pill">Surrogate modeling</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title"><span>💻</span> Programming &amp; Computing</div>
+        <div class="skill-pills">
+          <span class="skill-pill primary">Python</span>
+          <span class="skill-pill primary">NumPy</span>
+          <span class="skill-pill">MATLAB</span>
+          <span class="skill-pill">C</span>
+          <span class="skill-pill">LaTeX</span>
+          <span class="skill-pill">Linux / HPC</span>
+          <span class="skill-pill">Jupyter Notebook</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title"><span>📡</span> RF &amp; Electromagnetics</div>
+        <div class="skill-pills">
+          <span class="skill-pill primary">mm-Wave (100 GHz)</span>
+          <span class="skill-pill primary">EMC / EMI</span>
+          <span class="skill-pill">NF-FF Modeling</span>
+          <span class="skill-pill">Radiation Patterns</span>
+          <span class="skill-pill">S-parameters</span>
+          <span class="skill-pill">Radiated Emissions</span>
+          <span class="skill-pill">Multilayer Stackup</span>
+          <span class="skill-pill">RFIC Analysis</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title"><span>🔬</span> Research Methods</div>
+        <div class="skill-pills">
+          <span class="skill-pill primary">DOE &amp; Parametric Studies</span>
+          <span class="skill-pill primary">Cross-Solver Benchmarking</span>
+          <span class="skill-pill">Verification &amp; Validation</span>
+          <span class="skill-pill">Iterative Model Development</span>
+          <span class="skill-pill">Technical Writing</span>
+          <span class="skill-pill">Statistics I &amp; II</span>
+          <span class="skill-pill">SysML</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title"><span>🤝</span> Project &amp; Collaboration</div>
+        <div class="skill-pills">
+          <span class="skill-pill">End-to-End Project Mgmt</span>
+          <span class="skill-pill">EU Consortium Reporting</span>
+          <span class="skill-pill">Milestone Tracking</span>
+          <span class="skill-pill">Stakeholder Communication</span>
+          <span class="skill-pill">Knowledge Sharing</span>
+          <span class="skill-pill">Team Coordination</span>
+          <span class="skill-pill">English C1</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EDUCATION ══════════════════════════════════════ -->
+<section id="education" class="section section-alt" aria-label="Education">
+  <div class="section-inner">
+    <p class="section-label">Qualifications</p>
+    <div class="teal-line"></div>
+    <h2 class="section-title" style="color:var(--white)">Education &amp; Publications</h2>
+
+    <div class="edu-list" style="margin-bottom:52px;">
+
+      <div class="edu-item">
+        <div class="edu-icon">🎓</div>
+        <div>
+          <div class="edu-degree">Engineering Doctorate (EngD) — Electrical Engineering</div>
+          <div class="edu-institution">Eindhoven University of Technology (TU/e), Netherlands</div>
+          <div class="edu-meta">2024 – 2026 · Graduated June 2026</div>
+          <div class="edu-note">Thesis: <em>AI/ML-Based Near-Field to Far-Field Mapping for mm-Wave ICs in EMC Modeling</em><br>Coursework: Design Methods for ICT Systems · Statistics I &amp; II · Systems Engineering Advanced (SysML) · Numerical Methods in Electrical Engineering · Advanced CMOS Design</div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-icon">🥇</div>
+        <div>
+          <div class="edu-degree">Master of Philosophy (M.Phil.) — Electronics</div>
+          <div class="edu-institution">Quaid-i-Azam University, Pakistan</div>
+          <div class="edu-meta">2019 – 2021</div>
+          <div class="edu-note">Thesis: <em>Dispersion Engineered Mid-IR Supercontinuum Generation Using Dual-Core Silicon-Rich Nitride Photonic Integrated Waveguide</em></div>
+          <div class="edu-honor">🏅 Gold Medal — CGPA 4.0/4.0 · 1st in Department</div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-icon">📘</div>
+        <div>
+          <div class="edu-degree">Master of Science (M.Sc.) — Electronics</div>
+          <div class="edu-institution">Quaid-i-Azam University, Pakistan</div>
+          <div class="edu-meta">2017 – 2019</div>
+          <div class="edu-note">Coursework: Electromagnetic Theory · Microwave Engineering · Radar Signal Processing · High-Frequency Electromagnetics · Wireless Communications · ADSP</div>
+          <div class="edu-honor">🎖 Ranked 3rd in Graduating Class</div>
+        </div>
+      </div>
+
+    </div>
+
+    <h3 style="font-size:20px;font-weight:700;color:var(--white);margin-bottom:8px;letter-spacing:-0.02em;">Publications</h3>
+    <p style="font-size:14px;color:rgba(255,255,255,0.45);margin-bottom:24px;">Peer-reviewed journal articles and international conference contributions</p>
+
+    <div class="pub-list">
+      <div class="pub-item">
+        <div class="pub-title">Reactive Near-Field to Far-Field Prediction in mm-Wave Integrated Circuits Using Deep Learning Architectures for EMC Modeling</div>
+        <div class="pub-meta">Ilyas, K. et al. · <span>NXP-Approved · Manuscript prepared for journal submission</span></div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">Three-octave supercontinuum spanning with Z-cut lithium niobate photonic waveguide</div>
+        <div class="pub-meta">Ilyas, K. &amp; Naqvi, Q.A. · <span>Journal of Electromagnetic Waves and Applications, 2024</span></div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">Dispersion engineered mid-IR supercontinuum generation using multi-core silicon-rich nitride photonic integrated waveguide</div>
+        <div class="pub-meta">Ilyas, K. &amp; Naqvi, Q.A. · <span>Optik, 2022</span></div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title">Tunable Dispersive Wave Generation for High Power Supercontinuum Coverage in Mid-IR and Far-IR Regions</div>
+        <div class="pub-meta">Ilyas, K. &amp; Naqvi, Q.A. · <span>Optica Advanced Photonics Congress, 2022</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;">
+      <h3 style="font-size:18px;font-weight:700;color:var(--white);margin-bottom:20px;">Awards &amp; Certifications</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:5px;padding:16px 20px;">
+          <div style="font-size:14px;font-weight:600;color:var(--white);margin-bottom:4px;">🏆 Chancellor's Medal</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.45);">Presented by the President of Pakistan · 1st in Faculty of Science, QAU 2023</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:5px;padding:16px 20px;">
+          <div style="font-size:14px;font-weight:600;color:var(--white);margin-bottom:4px;">🏆 Vice Chancellor's Medal</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.45);">Presented by Federal Minister for Education · 1st in Dept. of Electronics, QAU 2023</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:5px;padding:16px 20px;">
+          <div style="font-size:14px;font-weight:600;color:var(--white);margin-bottom:4px;">🎓 Machine Learning with MATLAB</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.45);">MathWorks MATLAB Academy (Online)</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:5px;padding:16px 20px;">
+          <div style="font-size:14px;font-weight:600;color:var(--white);margin-bottom:4px;">🖥 HPC Supercomputing Autumn School</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.45);">High-performance computing for engineering simulation workloads</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ OPPORTUNITIES ═════════════════════════════════ -->
+<section id="opportunities" class="section section-light" aria-label="Open to opportunities">
+  <div class="section-inner">
+    <p class="section-label">Open to</p>
+    <div class="teal-line"></div>
+    <h2 class="section-title">Currently interested in</h2>
+    <p class="section-sub">I'm selectively exploring opportunities where my combination of EM simulation depth and AI/ML experience can create real technical value.</p>
+
+    <div class="opps-grid">
+      <div class="opp-item">
+        <div class="opp-icon">〰</div>
+        <div>
+          <div class="opp-title">EM / RF Simulation Engineer</div>
+          <div class="opp-desc">mm-Wave, RFIC, EMC, or antenna simulation roles at semiconductor companies, chipmakers, or automotive electronics firms using HFSS, ADS, or CST.</div>
+        </div>
+      </div>
+      <div class="opp-item">
+        <div class="opp-icon">📡</div>
+        <div>
+          <div class="opp-title">EMC Simulation / Pre-Compliance Engineer</div>
+          <div class="opp-desc">Pre-compliance EMC modeling, radiated emission analysis, and simulation-led verification roles at semiconductor or electronic systems companies.</div>
+        </div>
+      </div>
+      <div class="opp-item">
+        <div class="opp-icon">🧠</div>
+        <div>
+          <div class="opp-title">AI/ML Engineer — Physics Simulation</div>
+          <div class="opp-desc">Roles applying deep learning to accelerate or augment physics-based simulation — surrogate modeling, field prediction, or scientific ML in engineering contexts.</div>
+        </div>
+      </div>
+      <div class="opp-item">
+        <div class="opp-icon">📶</div>
+        <div>
+          <div class="opp-title">5G / 6G RF Research Engineer</div>
+          <div class="opp-desc">Research positions in mm-wave antenna, RFIC, or propagation at telecom companies, research institutes (IMEC, TNO), or EU-funded projects.</div>
+        </div>
+      </div>
+      <div class="opp-item">
+        <div class="opp-icon">🛠</div>
+        <div>
+          <div class="opp-title">EDA Application / Field Engineer</div>
+          <div class="opp-desc">Technical application engineering roles at EDA companies (Ansys, Keysight, Cadence, Dassault Simulia) where domain depth in EM simulation is the key qualification.</div>
+        </div>
+      </div>
+      <div class="opp-item">
+        <div class="opp-icon">🔬</div>
+        <div>
+          <div class="opp-title">R&amp;D Research Scientist</div>
+          <div class="opp-desc">Industrial or applied research positions at NXP, IMEC, TNO, Nokia Bell Labs, Ericsson, or similar organizations at the semiconductor–communications interface.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:24px 28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+      <div>
+        <div style="font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px;">📍 Based in Eindhoven, Netherlands</div>
+        <div style="font-size:14px;color:var(--muted);">Available for on-site roles in the Netherlands/Belgium, hybrid, or remote positions across the EU. Eligible to work in the Netherlands.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ════════════════════════════════════════ -->
+<section id="contact" aria-label="Contact">
+  <div class="contact-inner">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <p class="section-label" style="color:var(--teal);">Let's connect</p>
+        <div class="teal-line"></div>
+        <h2 class="section-title">If you're building a team<br>that needs this expertise</h2>
+        <p class="contact-text">If you're recruiting for a role in EM simulation, EMC engineering, RF research, or AI/ML applied to physics, I'd be glad to talk. I'm particularly interested in roles where the problems are genuinely hard and the work can be published.</p>
+        <div class="contact-links">
+          <a href="mailto:k.ilyas8593@gmail.com" class="contact-link">
+            <div class="contact-link-icon">✉</div>
+            k.ilyas8593@gmail.com
+          </a>
+          <a href="https://linkedin.com/in/kiranilyas079" class="contact-link" target="_blank" rel="noopener">
+            <div class="contact-link-icon">in</div>
+            linkedin.com/in/kiranilyas079
+          </a>
+          <a href="#" class="contact-link">
+            <div class="contact-link-icon">📄</div>
+            Download CV <span style="font-size:12px;color:var(--muted);margin-left:6px;">[add CV PDF link here]</span>
+          </a>
+          <div class="contact-link" style="cursor:default;">
+            <div class="contact-link-icon">📍</div>
+            Eindhoven, Netherlands
+          </div>
+        </div>
+      </div>
+      <div class="contact-right">
+        <h3>Send a message</h3>
+        <p>Reach out directly — I respond to all relevant enquiries within one working day.</p>
+        <div class="contact-row">
+          <label for="c-name">Your name</label>
+          <input type="text" id="c-name" placeholder="Jane Smith" />
+        </div>
+        <div class="contact-row">
+          <label for="c-email">Email address</label>
+          <input type="email" id="c-email" placeholder="jane@company.com" />
+        </div>
+        <div class="contact-row">
+          <label for="c-role">Role / opportunity</label>
+          <input type="text" id="c-role" placeholder="e.g. EM Simulation Engineer at Ansys" />
+        </div>
+        <div class="contact-row">
+          <label for="c-msg">Message</label>
+          <textarea id="c-msg" placeholder="Tell me a little about the role and your team…"></textarea>
+        </div>
+        <button class="contact-submit" onclick="handleContactSubmit()">Send message</button>
+        <p id="contact-confirmation" style="display:none;margin-top:14px;font-size:13px;color:var(--teal);text-align:center;">✓ Message sent — I'll be in touch shortly.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:12px;text-align:center;line-height:1.5;">Or email directly: <a href="mailto:k.ilyas8593@gmail.com" style="color:rgba(255,255,255,0.4);">k.ilyas8593@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════ -->
+<footer>
+  <div class="footer-name"><strong>Kiran Ilyas</strong> · EM Simulation &amp; AI/ML Engineer · Eindhoven, Netherlands</div>
+  <div class="footer-links">
+    <a href="mailto:k.ilyas8593@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/kiranilyas079" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="#hero">Back to top</a>
+  </div>
+</footer>
+
+<script>
+  // Case study accordion
+  function toggleCase(id) {
+    const item = document.getElementById(id);
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.case-item').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.case-header').setAttribute('aria-expanded','false');
+    });
+    // Open clicked if it was closed
+    if (!isOpen) {
+      item.classList.add('open');
+      item.querySelector('.case-header').setAttribute('aria-expanded','true');
+    }
+  }
+
+  // Nav scroll behaviour
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 40
+      ? '0 4px 24px rgba(0,0,0,0.3)'
+      : 'none';
+  }, { passive: true });
+
+  // Contact form (mailto fallback — swap for actual backend if needed)
+  function handleContactSubmit() {
+    const name = document.getElementById('c-name').value.trim();
+    const email = document.getElementById('c-email').value.trim();
+    const role = document.getElementById('c-role').value.trim();
+    const msg = document.getElementById('c-msg').value.trim();
+    if (!name || !email || !msg) {
+      alert('Please fill in your name, email, and message.');
+      return;
+    }
+    const subject = encodeURIComponent(`Portfolio enquiry: ${role || 'Role opportunity'}`);
+    const body = encodeURIComponent(`Hi Kiran,\n\nMy name is ${name} (${email}).\n\n${role ? 'Role: ' + role + '\n\n' : ''}${msg}`);
+    window.location.href = `mailto:k.ilyas8593@gmail.com?subject=${subject}&body=${body}`;
+    document.getElementById('contact-confirmation').style.display = 'block';
+  }
+
+  // Smooth anchor on mobile nav close
+  document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
+    a.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
