@@ -198,7 +198,58 @@
       font-size: 12px;
       font-weight: 500;
     }
+/* ─── Modern Hero Layout ─── */
+.hero-modern-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+  gap: 64px;
+  align-items: center;
+  position: relative;
+}
 
+.hero-modern-copy {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-modern-portrait {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  align-self: stretch;
+  min-height: 390px;
+}
+
+.hero-modern-portrait img {
+  width: min(390px, 100%);
+  height: 430px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 12px;
+  border: none;
+  box-shadow: none;
+  position: relative;
+  z-index: 2;
+}
+
+/* soft glow behind portrait */
+.hero-modern-portrait::before {
+  content: '';
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0,194,178,0.18) 0%,
+    rgba(0,194,178,0.07) 42%,
+    transparent 72%
+  );
+  filter: blur(10px);
+  z-index: 0;
+}
     /* ─── Section Shell ─── */
     .section {
       padding: 88px 5%;
@@ -1019,24 +1070,27 @@
     </g>
   </svg>
 
-  <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;">
+   <div style="position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;">
 
-    <!-- TOP ROW: photo left, name/title right -->
-    <div style="display:flex;align-items:center;gap:40px;margin-bottom:36px;">
+    <!-- MODERN HERO: content left, portrait right -->
+    <div class="hero-modern-grid">
 
-      <!-- PHOTO -->
-      <div style="flex-shrink:0;">
-        <img src="photo.jpg" alt="Kiran Ilyas" style="width:280px;height:240px;border-radius:12px;object-fit:cover;object-position:center top;border:1.5px solid #00C2B2;box-shadow:0 0 40px rgba(0,194,178,0.3);">
-      </div>
-
-      <!-- NAME + TITLE -->
-      <div>
+      <div class="hero-modern-copy">
         <p class="hero-label">RF · ELECTROMAGNETICS · ELECTRONICS · AI/ML</p>
+
         <h1 class="hero-name">Kiran Ilyas</h1>
-        <p class="hero-title">RF, Electromagnetics &amp; Electronics Engineer | AI/ML<br>mm-Wave · EMC · EM Simulation · Deep Learning · EngD TU/e &amp; NXP</p>
+
+        <p class="hero-title">
+          RF, Electromagnetics &amp; Electronics Engineer | AI/ML<br>
+          mm-Wave · EMC · EM Simulation · Deep Learning · EngD TU/e &amp; NXP
+        </p>
       </div>
 
-    </div>
+      <div class="hero-modern-portrait">
+        <img src="photo.jpg" alt="Kiran Ilyas">
+      </div>
+
+     </div>
 
     <!-- BOTTOM: description, buttons, badges — full width under both -->
     <p class="hero-value" style="text-align:justify;max-width:760px;">I combine <strong>RF and electromagnetic engineering</strong>, <strong>electronics</strong>, and <strong>AI/ML</strong> to solve complex engineering problems through simulation, modeling, and data-driven methods. My experience spans mm-wave and EMC research at NXP Semiconductors, analog CMOS design, and integrated photonics, supported by an EngD in Electrical Engineering from TU/e.</p>
