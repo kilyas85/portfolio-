@@ -102,7 +102,7 @@ background:
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 100px 5% 60px;
+  padding: 110px 5% 64px;
 }
 .hero-field {
   position: absolute;
@@ -212,28 +212,28 @@ background:
     .hero-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 36px;
-  padding-top: 18px;
+  gap: 8px;
+  margin-top: 32px;
+  padding-top: 16px;
   border-top: 1px solid rgba(0,194,178,0.14);
 }
     .hero-badge {
-  border: 1px solid rgba(0,194,178,0.22);
-  background: rgba(0,194,178,0.08);
-  color: rgba(255,255,255,0.66);
-  padding: 6px 12px;
+  border: 1px solid rgba(0,194,178,0.20);
+  background: rgba(0,194,178,0.07);
+  color: rgba(255,255,255,0.68);
+  padding: 6px 11px;
   border-radius: 6px;
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   backdrop-filter: blur(4px);
 }
     
 /* ─── Modern Hero Layout ─── */
 .hero-modern-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
-  gap: 64px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+  gap: 56px;
   align-items: center;
   position: relative;
 }
@@ -247,6 +247,7 @@ background:
   position: relative;
   z-index: 3;
   width: calc((100% - 64px) * 0.625);
+  max-width: 680px;
   margin-top: 18px;
 }
 
@@ -255,6 +256,9 @@ background:
   margin-bottom: 26px;
   text-align: left !important;
   line-height: 1.7;
+  font-size: 16px;
+  color: rgba(255,255,255,0.72);
+  font-weight: 300;
 }
 
 .hero-modern-details .hero-badges {
@@ -265,10 +269,10 @@ background:
   position: relative;
   z-index: 2;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-end;
   align-self: stretch;
-  min-height: 390px;
+  min-height: 470px;
   transform: translateX(24px);
 }
 
@@ -276,17 +280,19 @@ background:
   content: '';
   position: absolute;
   right: -14px;
-  top: 38px;
+  top: 50%;
   width: 2px;
   height: 58%;
+  transform: translateY(-50%);
   background: linear-gradient(
     to bottom,
     transparent,
-    rgba(0,194,178,0.75),
-    rgba(0,194,178,0.18),
+    rgba(0,194,178,0.65),
+    rgba(0,194,178,0.16),
     transparent
   );
   z-index: 1;
+  pointer-events: none;
 }
 
 .hero-modern-portrait img {
@@ -307,18 +313,19 @@ border: 1px solid rgba(255,255,255,0.08);
 .hero-modern-portrait::before {
   content: '';
   position: absolute;
-  width: 520px;
-  height: 520px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
   background: radial-gradient(
     ellipse at center,
-    rgba(0,194,178,0.16) 0%,
-    rgba(0,194,178,0.08) 35%,
-    rgba(0,194,178,0.03) 55%,
+    rgba(0,194,178,0.14) 0%,
+    rgba(0,194,178,0.07) 36%,
+    rgba(0,194,178,0.025) 56%,
     transparent 72%
   );
   filter: blur(18px);
   z-index: 0;
+  pointer-events: none;
 }
     /* ─── Section Shell ─── */
     .section {
