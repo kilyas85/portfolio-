@@ -93,15 +93,17 @@
     }
 
     /* ─── Hero ─── */
-    #hero {
-      min-height: 100vh;
-      background: var(--navy);
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding: 100px 5% 80px;
-    }
+ #hero {
+  min-height: 100vh;
+background:
+  radial-gradient(circle at 82% 46%, rgba(0,194,178,0.08) 0%, transparent 34%),
+  linear-gradient(110deg, #0D1B2A 0%, #0D1B2A 55%, #10283A 100%);
+   display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 5% 60px;
+}
 .hero-field {
   position: absolute;
   inset: 0;
@@ -113,7 +115,7 @@
 }
 
 .hero-wave-field {
-  transform: translateX(18%);
+  transform: translate(18%, -6%);
   mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -137,28 +139,29 @@
       max-width: 720px;
     }
     .hero-label {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      color: var(--teal);
-      margin-bottom: 22px;
-      text-transform: uppercase;
-    }
-    .hero-name {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: clamp(48px, 7vw, 88px);
-      color: var(--white);
-      line-height: 1.0;
-      letter-spacing: -0.03em;
-      margin-bottom: 28px;
-    }
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--teal);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+   .hero-name {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(52px, 5.5vw, 76px);
+  color: var(--white);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  margin-bottom: 24px;
+}
     .hero-title {
-      font-size: clamp(16px, 2.2vw, 22px);
-      color: var(--teal);
-      font-weight: 500;
-      margin-bottom: 24px;
-      line-height: 1.4;
-    }
+  font-size: clamp(15px, 1.55vw, 19px);
+  color: var(--teal);
+  font-weight: 500;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  max-width: 650px;
+}
     .hero-value {
       font-size: clamp(15px, 1.6vw, 18px);
       color: rgba(255,255,255,0.72);
@@ -177,8 +180,8 @@
     .btn-primary {
       background: var(--teal);
       color: var(--navy);
-      padding: 13px 28px;
-      border-radius: 4px;
+       padding: 12px 24px;
+       border-radius: 6px;
       font-weight: 700;
       font-size: 14px;
       transition: background 0.2s, transform 0.15s;
@@ -193,8 +196,8 @@
     .btn-secondary {
       border: 1.5px solid rgba(255,255,255,0.3);
       color: rgba(255,255,255,0.85);
-      padding: 13px 28px;
-      border-radius: 4px;
+      padding: 12px 24px;
+       border-radius: 6px;
       font-weight: 500;
       font-size: 14px;
       transition: border-color 0.2s, color 0.2s, transform 0.15s;
@@ -207,20 +210,25 @@
       transform: translateY(-1px);
     }
     .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 52px;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 36px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
     .hero-badge {
-      border: 1px solid rgba(0,194,178,0.25);
-      background: rgba(0,194,178,0.07);
-      color: rgba(255,255,255,0.6);
-      padding: 5px 12px;
-      border-radius: 3px;
-      font-size: 12px;
-      font-weight: 500;
-    }
+  border: 1px solid rgba(0,194,178,0.22);
+  background: rgba(0,194,178,0.08);
+  color: rgba(255,255,255,0.72);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  backdrop-filter: blur(4px);
+}
+    
 /* ─── Modern Hero Layout ─── */
 .hero-modern-grid {
   display: grid;
@@ -235,24 +243,62 @@
   z-index: 3;
 }
 
+.hero-modern-details {
+  position: relative;
+  z-index: 3;
+  width: calc((100% - 64px) * 0.625);
+  margin-top: 28px;
+}
+
+.hero-modern-details .hero-value {
+  max-width: 620px;
+  margin-bottom: 32px;
+  text-align: left !important;
+  line-height: 1.7;
+}
+
+.hero-modern-details .hero-badges {
+  margin-top: 36px;
+}
+
 .hero-modern-portrait {
   position: relative;
   z-index: 2;
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-end;
   align-self: stretch;
   min-height: 390px;
+  transform: translateX(24px);
+}
+
+.hero-modern-portrait::after {
+  content: '';
+  position: absolute;
+  right: -14px;
+  top: 38px;
+  width: 2px;
+  height: 72%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0,194,178,0.75),
+    rgba(0,194,178,0.18),
+    transparent
+  );
+  z-index: 1;
 }
 
 .hero-modern-portrait img {
-  width: min(390px, 100%);
-  height: 430px;
+  width: min(420px, 100%);
+  height: 500px;
   object-fit: cover;
   object-position: center top;
-  border-radius: 12px;
-  border: none;
-  box-shadow: none;
+  border-radius: 18px;
+  border: 1px solid rgba(0,194,178,0.18);
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.32),
+    0 0 60px rgba(0,194,178,0.10);
   position: relative;
   z-index: 2;
 }
@@ -261,16 +307,17 @@
 .hero-modern-portrait::before {
   content: '';
   position: absolute;
-  width: 380px;
-  height: 380px;
+  width: 520px;
+  height: 520px;
   border-radius: 50%;
   background: radial-gradient(
-    circle,
-    rgba(0,194,178,0.18) 0%,
-    rgba(0,194,178,0.07) 42%,
+    ellipse at center,
+    rgba(0,194,178,0.16) 0%,
+    rgba(0,194,178,0.08) 35%,
+    rgba(0,194,178,0.03) 55%,
     transparent 72%
   );
-  filter: blur(10px);
+  filter: blur(18px);
   z-index: 0;
 }
     /* ─── Section Shell ─── */
@@ -1005,6 +1052,36 @@
 
     /* ─── Responsive ─── */
     @media (max-width: 900px) {
+                .hero-modern-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .hero-modern-copy {
+        order: 1;
+      }
+
+      .hero-modern-portrait {
+  order: 2;
+  min-height: auto;
+  justify-content: flex-start;
+  transform: none;
+}
+
+      .hero-modern-portrait img {
+        width: min(360px, 100%);
+        height: 420px;
+      }
+
+      .hero-modern-details {
+        width: 100%;
+        margin-top: 36px;
+      }
+
+      .hero-wave-field {
+        transform: translateX(28%);
+        opacity: 0.7;
+      }
       .nav-links { display: none; }
       .nav-links.open {
         display: flex;
@@ -1032,6 +1109,24 @@
       .contact-grid { grid-template-columns: 1fr; gap: 48px; }
     }
     @media (max-width: 600px) {
+            .hero-modern-portrait {
+        justify-content: center;
+      }
+
+      .hero-modern-portrait img {
+        width: min(300px, 88vw);
+        height: 350px;
+        border-radius: 14px;
+      }
+
+      .hero-modern-details {
+        margin-top: 28px;
+      }
+
+      .hero-wave-field {
+        transform: translateX(35%);
+        opacity: 0.5;
+      }
       .section { padding: 64px 5%; }
       .hero-actions { flex-direction: column; }
       .btn-primary, .btn-secondary { text-align: center; }
@@ -1118,11 +1213,11 @@
 
       <div class="hero-modern-portrait">
         <img src="photo.jpg" alt="Kiran Ilyas">
-      </div>
+   </div>
 
-     </div>
+    <!-- DESCRIPTION CONTINUES IN LEFT COLUMN -->
+    <div class="hero-modern-details">
 
-    <!-- BOTTOM: description, buttons, badges — full width under both -->
     <p class="hero-value" style="text-align:justify;max-width:760px;">I combine <strong>RF and electromagnetic engineering</strong>, <strong>electronics</strong>, and <strong>AI/ML</strong> to solve complex engineering problems through simulation, modeling, and data-driven methods. My experience spans mm-wave and EMC research at NXP Semiconductors, analog CMOS design, and integrated photonics, supported by an EngD in Electrical Engineering from TU/e.</p>
 
     <div class="hero-actions">
@@ -1140,6 +1235,7 @@
       <span class="hero-badge">NXP Semiconductors</span>
       <span class="hero-badge">EU INNOSTAR 5G/6G</span>
       <span class="hero-badge">Eindhoven, Netherlands</span>
+    </div>
     </div>
 
   </div>
