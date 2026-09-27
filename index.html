@@ -388,11 +388,29 @@ border: 1px solid rgba(255,255,255,0.08);
       gap: 2px;
     }
     .metric {
-      padding: 36px 28px;
-      text-align: center;
-      border-right: 1px solid rgba(255,255,255,0.08);
-    }
-    .metric:last-child { border-right: none; }
+  padding: 24px 28px;
+  text-align: center;
+  position: relative;
+}
+
+.metric:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 22%;
+  width: 1px;
+  height: 56%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0,194,178,0.18),
+    transparent
+  );
+}
+
+.metric:last-child {
+  border-right: none;
+}
     .metric-num {
       font-size: clamp(36px, 4vw, 52px);
       font-weight: 700;
