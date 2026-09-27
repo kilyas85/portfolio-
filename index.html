@@ -1209,6 +1209,21 @@ border: 1px solid rgba(255,255,255,0.08);
   text-align: center;
   padding: 13px 12px;
 }
+      .about-heading {
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.about-heading-photo img {
+  width: 92px;
+  height: 92px;
+  border-width: 2px;
+}
+
+.about-heading .section-title {
+  font-size: 27px;
+  line-height: 1.15;
+}
      /* Mobile About */
 .about-grid {
   grid-template-columns: 1fr;
@@ -1374,14 +1389,41 @@ border: 1px solid rgba(255,255,255,0.08);
     <p class="section-label">Background</p>
       <div class="teal-line"></div>
 
-      <!-- Photo + heading side by side -->
-      <div style="display:flex;align-items:center;gap:32px;margin-bottom:36px;">
-        <div style="flex-shrink:0;">
-          <img src="photo.jpg" alt="Kiran Ilyas" style="width:180px;height:180px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid #00C2B2;box-shadow:0 0 30px rgba(0,194,178,0.2);">
-        </div>
-        <h2 class="section-title" style="margin-bottom:0;">Engineering across disciplines.<br>Driven by physics.</h2>
-      </div>
+      <!-- Photo + heading -->
+<div class="about-heading">
+  <div class="about-heading-photo">
+    <img src="photo.jpg" alt="Kiran Ilyas">
+  </div>
 
+  <h2 class="section-title">
+    Engineering across disciplines.<br>Driven by physics.
+  </h2>
+</div>
+
+    .about-heading {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+.about-heading-photo {
+  flex-shrink: 0;
+}
+
+.about-heading-photo img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid #00C2B2;
+  box-shadow: 0 0 30px rgba(0,194,178,0.2);
+}
+
+.about-heading .section-title {
+  margin-bottom: 0;
+}
       <div class="about-grid">
 
       <div class="about-text">
