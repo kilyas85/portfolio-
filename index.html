@@ -975,18 +975,22 @@ border: 1px solid rgba(255,255,255,0.08);
       margin-bottom: 36px;
     }
     .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 30px;
+  margin-bottom: 48px;
+}
     .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      color: rgba(255,255,255,0.75);
-      font-size: 15px;
-      transition: color 0.2s;
-    }
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: rgba(255,255,255,0.75);
+  font-size: 15px;
+  line-height: 1.35;
+  text-decoration: none;
+  transition: color 0.2s;
+}
     .contact-link:hover { color: var(--teal); text-decoration: none; }
     .contact-link-icon {
       width: 40px; height: 40px;
@@ -1563,13 +1567,17 @@ border: 1px solid rgba(255,255,255,0.08);
    MOBILE — CONTACT
    ═══════════════════════════════════════ */
 
+/* ═══════════════════════════════════════
+   MOBILE — CONTACT
+   ═══════════════════════════════════════ */
+
 #contact {
   padding: 64px 5%;
 }
 
 .contact-grid {
   grid-template-columns: 1fr;
-  gap: 36px;
+  gap: 0;
 }
 
 .contact-text {
@@ -1580,17 +1588,21 @@ border: 1px solid rgba(255,255,255,0.08);
 
 .contact-links {
   gap: 12px;
+  margin-top: 0;
+  margin-bottom: 52px;
 }
 
 .contact-link {
-  gap: 11px;
-  font-size: 13.5px;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.4;
 }
 
 .contact-link-icon {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   font-size: 14px;
+  flex-shrink: 0;
 }
 
 .contact-right {
@@ -2405,7 +2417,7 @@ footer {
         <div>
           <div class="edu-degree">Engineering Doctorate (EngD) — Electrical Engineering</div>
           <div class="edu-institution">Eindhoven University of Technology (TU/e), Netherlands</div>
-          <div class="edu-meta">2024 – 2026 · Graduated June 2026</div>
+          <div class="edu-meta">2024 – 2026 </div>
 
           <div class="edu-note">
             Thesis: <em>AI/ML-Based Near-Field to Far-Field Mapping for mm-Wave ICs in EMC Modeling</em>
