@@ -283,8 +283,10 @@ background:
 .hero-modern-portrait::after {
   content: '';
   position: absolute;
+
   right: 0;
-  bottom: -1px;
+  bottom: -15px;
+
   width: 88%;
   height: 2px;
 
@@ -297,12 +299,23 @@ background:
     rgba(0,194,178,0.85) 100%
   );
 
-  box-shadow: 0 0 8px rgba(0,194,178,0.22);
+  box-shadow: 0 0 8px rgba(0,194,178,0.18);
 
   z-index: 3;
   pointer-events: none;
 }
-
+.hero-modern-portrait {
+  --portrait-line-2:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0,194,178,0.08) 28%,
+      rgba(0,194,178,0.22) 55%,
+      rgba(0,194,178,0.48) 78%,
+      rgba(0,194,178,0.85) 100%
+    );
+}
+    
 /* portrait */
 .hero-modern-portrait img {
  width: min(470px, 100%);
