@@ -273,24 +273,27 @@ background:
   z-index: 2;
   display: flex;
   align-items: flex-end;
-  justify-content: flex-end;
+  justify-content: center;
   align-self: stretch;
-  min-height: 470px;
-  transform: translateX(24px);
+  min-height: 520px;
+  transform: translateX(20px);
+  overflow: visible;
 }
 
 .hero-modern-portrait img {
   display: block;
-  width: min(440px, 100%);
+  width: 520px;
+  max-width: none;
   height: auto;
-  max-height: 500px;
+  max-height: none;
   object-fit: contain;
-  object-position: center bottom;
   border: none;
   border-radius: 0;
   box-shadow: none;
   background: transparent;
-  position: relative;
+  position: absolute;
+  bottom: -2px;
+  right: -10px;
   z-index: 2;
 }
 
