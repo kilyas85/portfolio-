@@ -118,6 +118,9 @@ background:
   transform: translate(0, -30%);
   opacity: 1;
   pointer-events: auto;
+}
+   .hero-wave-field .wave-lines,
+.hero-wave-field .wave-dots {
   mask-image: linear-gradient(
     to right,
     rgba(0,0,0,0.10) 0%,
@@ -127,6 +130,7 @@ background:
     #000 78%,
     #000 100%
   );
+
   -webkit-mask-image: linear-gradient(
     to right,
     rgba(0,0,0,0.10) 0%,
@@ -136,9 +140,8 @@ background:
     #000 78%,
     #000 100%
   );
-}
-    /* Interactive electromagnetic field indicator */
-
+} 
+    /* ─── Interactive E / H / S field indicator ─── */
 .em-field-indicator {
   opacity: 0;
   pointer-events: none;
@@ -151,14 +154,16 @@ background:
 
 .em-e-line,
 .em-h-circle,
-.em-h-mark {
+.em-h-mark,
+.em-s-line {
   fill: none;
   stroke: #00C2B2;
   stroke-width: 1.5;
   vector-effect: non-scaling-stroke;
 }
 
-.em-e-arrow {
+.em-e-arrow,
+.em-s-arrow {
   fill: #00C2B2;
 }
 
@@ -173,13 +178,12 @@ background:
   fill: rgba(8,27,42,0.72);
 }
 
-/* No hover interaction on touch devices */
 @media (hover: none), (pointer: coarse) {
   .em-field-indicator {
     display: none;
   }
 }
-    .hero-content {
+     .hero-content {
       position: relative;
       z-index: 2;
       max-width: 720px;
@@ -1752,7 +1756,7 @@ footer {
 <!-- ═══ HERO ══════════════════════════════════════════ -->
 <section id="hero" aria-label="Introduction">
 <svg class="hero-field hero-wave-field" viewBox="0 0 1440 800" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <g fill="none" stroke="#00C2B2" stroke-width="1">
+  <g class="wave-lines" fill="none" stroke="#00C2B2" stroke-width="1">
     <path d="M0 500 C180 430, 280 590, 450 520 S720 370, 900 455 S1160 590, 1440 420"/>
     <path d="M0 520 C190 450, 300 610, 470 535 S735 390, 915 475 S1170 610, 1440 440"/>
     <path d="M0 540 C200 470, 320 630, 490 550 S750 410, 930 495 S1180 630, 1440 460"/>
@@ -1761,7 +1765,7 @@ footer {
     <path d="M0 600 C230 530, 380 690, 550 595 S795 470, 975 555 S1210 690, 1440 520"/>
   </g>
 
-  <g fill="#00C2B2">
+  <g class="wave-dots" fill="#00C2B2">
     <circle cx="835" cy="435" r="1.4"/>
     <circle cx="865" cy="448" r="1.2"/>
     <circle cx="895" cy="462" r="1.3"/>
@@ -1771,10 +1775,10 @@ footer {
     <circle cx="1015" cy="525" r="1.3"/>
     <circle cx="1045" cy="540" r="1.1"/>
   </g>
-  <!-- Interactive EM field indicator -->
+ <!-- Interactive E / H / S field indicator -->
 <g class="em-field-indicator" transform="translate(720 450)">
-  
-  <!-- E-field arrow -->
+
+  <!-- E-field -->
   <line class="em-e-line"
         x1="0" y1="0"
         x2="0" y2="-62" />
@@ -1782,10 +1786,10 @@ footer {
   <polygon class="em-e-arrow"
            points="-6,-51 0,-64 6,-51" />
 
-  <text class="em-field-label em-e-label"
+  <text class="em-field-label"
         x="10" y="-52">E</text>
 
-  <!-- H-field direction: circle + cross -->
+  <!-- H-field: into the screen -->
   <circle class="em-h-circle"
           cx="0" cy="24" r="8" />
 
@@ -1797,8 +1801,19 @@ footer {
         x1="4" y1="20"
         x2="-4" y2="28" />
 
-  <text class="em-field-label em-h-label"
+  <text class="em-field-label"
         x="13" y="29">H</text>
+
+  <!-- Poynting vector -->
+  <line class="em-s-line"
+        x1="0" y1="0"
+        x2="72" y2="0" />
+
+  <polygon class="em-s-arrow"
+           points="72,0 59,-6 59,6" />
+
+  <text class="em-field-label"
+        x="77" y="5">S</text>
 
 </g>
 </svg>
