@@ -2851,33 +2851,35 @@ footer {
   });
 </script>
 <script>
-  // Interactive electromagnetic field marker
-  const heroWave = document.querySelector('.hero-wave-field');
-  const emField = document.querySelector('.em-field-indicator');
+// Interactive electromagnetic field marker across the full hero
+const hero = document.querySelector('#hero');
+const heroWave = document.querySelector('.hero-wave-field');
+const emField = document.querySelector('.em-field-indicator');
 
-  if (
-    heroWave &&
-    emField &&
-    window.matchMedia('(hover: hover) and (pointer: fine)').matches
-  ) {
-    heroWave.addEventListener('mousemove', (event) => {
-      const rect = heroWave.getBoundingClientRect();
+if (
+  hero &&
+  heroWave &&
+  emField &&
+  window.matchMedia('(hover: hover) and (pointer: fine)').matches
+) {
+  hero.addEventListener('mousemove', (event) => {
+    const rect = heroWave.getBoundingClientRect();
 
-      const x = ((event.clientX - rect.left) / rect.width) * 1440;
-      const y = ((event.clientY - rect.top) / rect.height) * 800;
+    const x = ((event.clientX - rect.left) / rect.width) * 1440;
+    const y = ((event.clientY - rect.top) / rect.height) * 800;
 
-      emField.setAttribute(
-        'transform',
-        `translate(${x.toFixed(1)} ${y.toFixed(1)})`
-      );
+    emField.setAttribute(
+      'transform',
+      `translate(${x.toFixed(1)} ${y.toFixed(1)})`
+    );
 
-      emField.classList.add('active');
-    });
+    emField.classList.add('active');
+  });
 
-    heroWave.addEventListener('mouseleave', () => {
-      emField.classList.remove('active');
-    });
-  }
+  hero.addEventListener('mouseleave', () => {
+    emField.classList.remove('active');
+  });
+}
 </script>
 
 </body>
