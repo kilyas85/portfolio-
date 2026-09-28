@@ -141,7 +141,25 @@ background:
     #000 100%
   );
 } 
-    /* ─── Interactive E / H / S field indicator ─── */
+    
+/* ─── Animated electromagnetic hero field ─── */
+#emCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+.hero-wave-field {
+  z-index: 1;
+}
+
+/* The SVG now carries only the interactive E / H / S marker. */
+
+/* ─── Interactive E / H / S field indicator ─── */
 .em-field-indicator {
   opacity: 0;
   pointer-events: none;
@@ -177,6 +195,27 @@ background:
 .em-h-circle {
   fill: rgba(8,27,42,0.72);
 }
+
+/* ─── Refined E / H / S cursor: compact original-style proportions ─── */
+.em-field-indicator {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.em-field-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.em-e-line,
+.em-h-circle,
+.em-h-mark,
+.em-s-line {
+  stroke-width: 1.25;
+}
+
 
 @media (hover: none), (pointer: coarse) {
   .em-field-indicator {
@@ -986,7 +1025,137 @@ object-fit: cover;
       font-weight: 600;
     }
 
-    /* ─── Opportunities ─── */
+    
+/* ═══ FIELD STUDIO — EDUCATION / PUBLICATIONS ═══ */
+#education .edu-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(0,194,178,0.16);
+  border: 1px solid rgba(0,194,178,0.16);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#education .edu-item {
+  background: #0A1823;
+  padding: 30px 28px;
+  display: block;
+  min-width: 0;
+  transition: background 0.28s ease, transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+#education .edu-item:hover {
+  background: #0D202D;
+  transform: translateY(-3px);
+  box-shadow: 0 18px 42px rgba(0,0,0,0.18);
+  position: relative;
+  z-index: 2;
+}
+
+#education .edu-icon {
+  font-size: 27px;
+  filter: none;
+  opacity: 1;
+  margin-bottom: 18px;
+}
+
+#education .edu-degree {
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--white);
+}
+
+#education .edu-institution {
+  font-size: 13px;
+  color: var(--teal);
+  margin: 8px 0 5px;
+}
+
+#education .edu-meta {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.40);
+  margin-bottom: 14px;
+}
+
+#education .edu-note {
+  font-size: 13px;
+  color: rgba(255,255,255,0.56);
+  line-height: 1.68;
+}
+
+#education .edu-note strong {
+  color: rgba(255,255,255,0.78);
+}
+
+#education .edu-honor {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 9.5px;
+  line-height: 1.5;
+  color: var(--teal);
+  border: 1px solid rgba(0,194,178,0.28);
+  background: rgba(0,194,178,0.06);
+  padding: 5px 8px;
+  border-radius: 3px;
+}
+
+#education .pub-list {
+  margin-top: 0;
+  display: grid;
+  gap: 8px;
+}
+
+#education .pub-item {
+  background: rgba(255,255,255,0.035);
+  border: 1px solid rgba(255,255,255,0.085);
+  border-left: 2px solid rgba(0,194,178,0.58);
+  border-radius: 0 4px 4px 0;
+  padding: 18px 20px;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+#education .pub-item:hover {
+  background: rgba(0,194,178,0.045);
+  border-color: rgba(0,194,178,0.26);
+  border-left-color: var(--teal);
+  transform: translateX(3px);
+}
+
+#education .pub-title {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.5;
+}
+
+#education .pub-meta {
+  font-size: 11px;
+  color: rgba(255,255,255,0.40);
+  margin-top: 5px;
+}
+
+#education .pub-meta span {
+  color: var(--teal);
+}
+
+@media (max-width: 900px) {
+  #education .edu-list {
+    grid-template-columns: 1fr;
+    gap: 1px;
+  }
+}
+
+@media (max-width: 600px) {
+  #education .edu-item {
+    padding: 22px 20px;
+  }
+}
+
+/* ─── Opportunities ─── */
     .opps-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1141,7 +1310,105 @@ object-fit: cover;
     }
     .contact-submit:hover { background: var(--teal-dk); color: var(--white); }
 
-    /* ─── Footer ─── */
+    
+/* ═══ FIELD STUDIO — ILLUMINATED MESSAGE PANEL ═══ */
+#contact .contact-right {
+  position: relative;
+  overflow: hidden;
+  padding: 34px;
+  border: 1px solid rgba(0,194,178,0.20);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 88% 10%, rgba(0,194,178,0.13) 0%, rgba(0,194,178,0.045) 24%, transparent 48%),
+    linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018));
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.035),
+    0 0 55px rgba(0,194,178,0.045);
+  backdrop-filter: blur(8px);
+}
+
+#contact .contact-right::before {
+  content: 'TX / MESSAGE';
+  position: absolute;
+  right: 16px;
+  top: 13px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: rgba(0,194,178,0.48);
+  pointer-events: none;
+}
+
+#contact .contact-right::after {
+  content: '';
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  right: -70px;
+  top: -80px;
+  border: 1px solid rgba(0,194,178,0.12);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 28px rgba(0,194,178,0.025),
+    0 0 0 58px rgba(0,194,178,0.012);
+  pointer-events: none;
+}
+
+#contact .contact-right h3 {
+  font-size: 19px;
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+
+#contact .contact-right > p,
+#contact .contact-row,
+#contact .contact-submit {
+  position: relative;
+  z-index: 1;
+}
+
+#contact .contact-row label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 9px;
+  letter-spacing: 0.10em;
+}
+
+#contact .contact-row input,
+#contact .contact-row textarea {
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.038);
+  border-radius: 4px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+#contact .contact-row input:focus,
+#contact .contact-row textarea:focus {
+  border-color: var(--teal);
+  background: rgba(0,194,178,0.035);
+  box-shadow:
+    0 0 0 1px rgba(0,194,178,0.10),
+    0 0 24px rgba(0,194,178,0.07);
+}
+
+#contact .contact-submit {
+  letter-spacing: 0.055em;
+  box-shadow: 0 0 24px rgba(0,194,178,0.10);
+}
+
+#contact .contact-submit:hover {
+  box-shadow: 0 0 34px rgba(0,194,178,0.20);
+}
+
+@media (max-width: 600px) {
+  #contact .contact-right {
+    padding: 24px 18px;
+  }
+}
+
+/* ─── Footer ─── */
     footer {
       background: #080F18;
       padding: 28px 5%;
@@ -1755,65 +2022,48 @@ footer {
 
 <!-- ═══ HERO ══════════════════════════════════════════ -->
 <section id="hero" aria-label="Introduction">
+<canvas id="emCanvas" aria-hidden="true"></canvas>
 <svg class="hero-field hero-wave-field" viewBox="0 0 1440 800" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <g class="wave-lines" fill="none" stroke="#00C2B2" stroke-width="1">
-    <path d="M0 500 C180 430, 280 590, 450 520 S720 370, 900 455 S1160 590, 1440 420"/>
-    <path d="M0 520 C190 450, 300 610, 470 535 S735 390, 915 475 S1170 610, 1440 440"/>
-    <path d="M0 540 C200 470, 320 630, 490 550 S750 410, 930 495 S1180 630, 1440 460"/>
-    <path d="M0 560 C210 490, 340 650, 510 565 S765 430, 945 515 S1190 650, 1440 480"/>
-    <path d="M0 580 C220 510, 360 670, 530 580 S780 450, 960 535 S1200 670, 1440 500"/>
-    <path d="M0 600 C230 530, 380 690, 550 595 S795 470, 975 555 S1210 690, 1440 520"/>
-  </g>
 
-  <g class="wave-dots" fill="#00C2B2">
-    <circle cx="835" cy="435" r="1.4"/>
-    <circle cx="865" cy="448" r="1.2"/>
-    <circle cx="895" cy="462" r="1.3"/>
-    <circle cx="925" cy="478" r="1.1"/>
-    <circle cx="955" cy="494" r="1.4"/>
-    <circle cx="985" cy="510" r="1.2"/>
-    <circle cx="1015" cy="525" r="1.3"/>
-    <circle cx="1045" cy="540" r="1.1"/>
-  </g>
  <!-- Interactive E / H / S field indicator -->
 <g class="em-field-indicator" transform="translate(720 450)">
 
   <!-- E-field -->
   <line class="em-e-line"
         x1="0" y1="0"
-        x2="0" y2="-62" />
+        x2="0" y2="-50" />
 
   <polygon class="em-e-arrow"
-           points="-6,-51 0,-64 6,-51" />
+           points="-5,-41 0,-52 5,-41" />
 
   <text class="em-field-label"
-        x="10" y="-52">E</text>
+        x="8" y="-42">E</text>
 
   <!-- H-field: into the screen -->
   <circle class="em-h-circle"
-          cx="0" cy="24" r="8" />
+          cx="0" cy="19" r="6.5" />
 
   <line class="em-h-mark"
-        x1="-4" y1="20"
-        x2="4" y2="28" />
+        x1="-3.5" y1="15.5"
+        x2="3.5" y2="22.5" />
 
   <line class="em-h-mark"
-        x1="4" y1="20"
-        x2="-4" y2="28" />
+        x1="3.5" y1="15.5"
+        x2="-3.5" y2="22.5" />
 
   <text class="em-field-label"
-        x="13" y="29">H</text>
+        x="10" y="23">H</text>
 
   <!-- Poynting vector -->
   <line class="em-s-line"
         x1="0" y1="0"
-        x2="72" y2="0" />
+        x2="58" y2="0" />
 
   <polygon class="em-s-arrow"
-           points="72,0 59,-6 59,6" />
+           points="58,0 47,-5 47,5" />
 
   <text class="em-field-label"
-        x="77" y="5">S</text>
+        x="63" y="4">S</text>
 
 </g>
 </svg>
@@ -2850,6 +3100,92 @@ footer {
     });
   });
 </script>
+
+<script>
+(() => {
+  const canvas = document.getElementById('emCanvas');
+  const heroSection = document.getElementById('hero');
+  if (!canvas || !heroSection) return;
+
+  const ctx = canvas.getContext('2d');
+  let mouseX = 0.72;
+  let phaseTime = 0;
+  let animationId = null;
+
+  function resizeField() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const rect = heroSection.getBoundingClientRect();
+
+    canvas.width = Math.max(1, Math.round(rect.width * dpr));
+    canvas.height = Math.max(1, Math.round(rect.height * dpr));
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function drawField() {
+    const w = canvas.clientWidth;
+    const h = canvas.clientHeight;
+    ctx.clearRect(0, 0, w, h);
+
+    phaseTime += 0.006;
+
+    for (let band = -4; band <= 4; band++) {
+      ctx.beginPath();
+
+      for (let x = 0; x <= w; x += 8) {
+        const nx = x / w;
+        const amplitude = 34 + 42 * nx;
+        const phase = nx * 8 + phaseTime * 2.4;
+        const focus = Math.exp(-Math.pow((nx - mouseX) * 3.2, 2));
+
+        const y =
+          h * (0.52 + band * 0.027) +
+          Math.sin(phase + band * 0.24) * amplitude * (0.38 + 0.62 * nx) +
+          Math.sin(phase * 1.7) * 8 * focus;
+
+        if (x === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+
+      const gradient = ctx.createLinearGradient(0, 0, w, 0);
+      gradient.addColorStop(0, 'rgba(0,194,178,0.025)');
+      gradient.addColorStop(0.45, 'rgba(0,194,178,0.10)');
+      gradient.addColorStop(1, 'rgba(100,246,255,0.34)');
+
+      ctx.strokeStyle = gradient;
+      ctx.lineWidth = 0.8;
+      ctx.stroke();
+    }
+
+    for (let i = 0; i < 30; i++) {
+      const x = w * (0.58 + (i % 10) * 0.04);
+      const y = h * (0.34 + Math.floor(i / 10) * 0.11) + Math.sin(phaseTime * 3 + i) * 7;
+      ctx.fillStyle = 'rgba(100,246,255,0.18)';
+      ctx.fillRect(x, y, 1.2, 1.2);
+    }
+
+    animationId = requestAnimationFrame(drawField);
+  }
+
+  resizeField();
+  window.addEventListener('resize', resizeField);
+
+  heroSection.addEventListener('pointermove', (event) => {
+    const rect = heroSection.getBoundingClientRect();
+    mouseX = (event.clientX - rect.left) / rect.width;
+  });
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    drawField();
+    if (animationId) cancelAnimationFrame(animationId);
+  } else {
+    drawField();
+  }
+})();
+</script>
+
 <script>
 // Interactive electromagnetic field marker across the full hero
 const hero = document.querySelector('#hero');
