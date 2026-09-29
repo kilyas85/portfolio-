@@ -2844,7 +2844,7 @@ footer {
   function draw(){
     const w=c.clientWidth,h=c.clientHeight;
     x.clearRect(0,0,w,h);
-    t+=.008;
+    t+=.013;
     const base=h*.51;
 
     x.save();
@@ -2859,10 +2859,12 @@ footer {
       for(let px=-20;px<w+20;px+=4){
         const u=px/w;
         const offset=(k-4)*7.5;
-        const env=.45+.55*Math.sin((u*.72-t*.07+k*.06)*Math.PI*2);
+        const env=.58+.42*Math.sin((u*.72-t*.12+k*.06)*Math.PI*2);
+        /* Stronger travelling vertical displacement: crests and troughs
+           visibly propagate in +x instead of looking like a sliding ribbon. */
         const y=base+offset
-          +Math.sin(u*12.5-t*(.8+k*.035)+k*.38)*(12+19*env)
-          +Math.sin(u*4+t*.22)*6;
+          +Math.sin(u*11.2-t*(2.05+k*.045)+k*.34)*(22+31*env)
+          +Math.sin(u*5.1-t*.92+k*.08)*10;
         px<0?x.moveTo(px,y):x.lineTo(px,y);
       }
       x.shadowColor='rgba(84,240,209,.42)';
@@ -2877,10 +2879,10 @@ footer {
     for(let i=0;i<7;i++){
       const u=(t*.055+i/7)%1;
       const px=u*w;
-      const env=.45+.55*Math.sin((u*.72-t*.07+4*.06)*Math.PI*2);
+      const env=.58+.42*Math.sin((u*.72-t*.12+4*.06)*Math.PI*2);
       const y=base
-        +Math.sin(u*12.5-t*(.8+4*.035)+4*.38)*(12+19*env)
-        +Math.sin(u*4+t*.22)*6;
+        +Math.sin(u*11.2-t*(2.05+4*.045)+4*.34)*(22+31*env)
+        +Math.sin(u*5.1-t*.92+4*.08)*10;
       x.beginPath();
       x.moveTo(px-7,y-3.5);
       x.lineTo(px,y);
@@ -2959,7 +2961,7 @@ function sz(){const d=Math.min(devicePixelRatio||1,2),r=c.getBoundingClientRect(
 function draw(){let w=c.clientWidth,h=c.clientHeight;x.clearRect(0,0,w,h);t+=.015;
 x.strokeStyle='rgba(84,240,209,.65)';x.lineWidth=1;
 for(let r=45;r<Math.min(w,h)*.48;r+=42){x.beginPath();x.arc(w*.55,h*.48,r,0,Math.PI*2);x.stroke()}
-x.beginPath();for(let i=0;i<360;i++){let a=i*Math.PI/180,rr=80+34*Math.sin(3*a+t)+15*Math.sin(7*a-t*.7);let px=w*.55+Math.cos(a)*rr,py=h*.48+Math.sin(a)*rr;i?x.lineTo(px,py):x.moveTo(px,py)}x.strokeStyle='rgba(255,189,89,.75)';x.lineWidth=3;x.stroke();x.lineWidth=1;
+x.beginPath();for(let i=0;i<360;i++){let a=i*Math.PI/180,rr=80+34*Math.sin(3*a+t)+15*Math.sin(7*a-t*.7);let px=w*.55+Math.cos(a)*rr,py=h*.48+Math.sin(a)*rr;i?x.lineTo(px,py):x.moveTo(px,py)}x.closePath();x.strokeStyle='rgba(255,189,89,.75)';x.lineWidth=3;x.lineJoin='round';x.lineCap='round';x.stroke();x.lineWidth=1;
 requestAnimationFrame(draw)}
 sz();addEventListener('resize',sz);draw()})();
 </script>
