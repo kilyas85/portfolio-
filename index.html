@@ -2002,6 +2002,531 @@ footer {
   gtag('js', new Date());
   gtag('config', 'G-LNM7CDVPX3');
 </script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style id="studio-zero-hero-only">
+/* Studio Zero HERO ONLY. No selectors below style About/Experience/Work/etc. */
+#hero{
+  --sz-bg:#071018; --sz-panel:#0b1721; --sz-line:#173342;
+  --sz-ph:#54f0d1; --sz-amber:#ffbd59; --sz-txt:#eaf7f5; --sz-mut:#7e9aa3;
+  min-height:100vh;
+  padding:100px 5% 55px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  color:var(--sz-txt);
+  font-family:Inter, Arial, sans-serif;
+}
+#hero .hero-modern-grid{
+  position:relative; z-index:3; width:min(1200px,100%); margin:auto;
+  display:grid; grid-template-columns:1.15fr .62fr; gap:55px; align-items:center;
+}
+#hero .hero-label{
+  font:700 10px "Courier New"; letter-spacing:.18em;
+  color:var(--sz-ph); text-transform:uppercase;
+}
+#hero .hero-name{
+  font-size:clamp(58px,7.5vw,105px); line-height:.86;
+  letter-spacing:-.065em; margin:18px 0; color:#fff;
+}
+#hero .hero-title{font:600 16px/1.6 "Courier New";color:var(--sz-amber)}
+#hero .hero-value{color:#9eb2b8;max-width:700px}
+#hero .hero-value strong{color:#dce8e9}
+#hero .hero-actions{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0}
+#hero .btn-primary,#hero .btn-secondary{
+  font:700 10px "Courier New";padding:11px 15px;border:1px solid var(--sz-line);
+  border-radius:0;text-decoration:none;
+}
+#hero .btn-primary{background:var(--sz-ph);color:#03100e}
+#hero .btn-secondary{background:transparent;color:#d9efeb}
+#hero .hero-badges{display:flex;flex-wrap:wrap;gap:6px}
+#hero .hero-badge{
+  font:700 9px "Courier New";padding:6px 8px;border:1px solid #1c4551;
+  color:#86c8c4;background:transparent;border-radius:0;
+}
+#hero .hero-modern-portrait{
+  position:relative;padding:14px;border:1px solid #1c4551;background:#08141d;
+}
+#hero .hero-modern-portrait:before{
+  content:"CAM 01  •  ENGINEER";position:absolute;left:14px;top:5px;
+  font:700 8px "Courier New";color:var(--sz-ph);z-index:2;
+}
+#hero .hero-modern-portrait img{
+  width:100%;height:auto;max-width:100%;display:block;
+  filter:saturate(.65) contrast(1.05);margin-top:10px;border-radius:0;
+}
+#hero .hero-modern-portrait:after{
+  content:"";position:absolute;inset:14px;top:24px;
+  background:linear-gradient(transparent 49%,rgba(84,240,209,.15) 50%,transparent 51%);
+  background-size:100% 7px;pointer-events:none;
+}
+#metrics{
+  --sz-line:#173342; --sz-ph:#54f0d1;
+  padding:0 5%;border-block:1px solid var(--sz-line);background:#061018;
+  font-family:Inter,Arial,sans-serif;
+}
+#metrics .metrics-grid{
+  max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);
+}
+#metrics .metric{padding:24px;border-right:1px solid var(--sz-line);text-align:center}
+#metrics .metric:last-child{border-right:0}
+#metrics .metric-num{font:800 39px "Courier New";color:var(--sz-ph)}
+#metrics .metric-label{font:700 9px "Courier New";color:#75939b;text-transform:uppercase}
+#hero #labHUD{position:absolute}
+#hero .scan{display:none}
+@media(max-width:850px){
+  #hero .hero-modern-grid{grid-template-columns:1fr}
+  #metrics .metrics-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+
+<style>
+/* ═══ STUDIO ZERO WAVE ═══════════════════════════════
+   Clean engineering hero + low-edge multi-wave field.
+   Inspired by the supplied Orbion reference, recreated independently.
+*/
+#hero{
+  min-height:100vh !important;
+  padding:92px 5% 38px !important;
+  align-items:stretch !important;
+  background:
+    radial-gradient(ellipse at 74% 30%, rgba(84,240,209,.055), transparent 28%),
+    linear-gradient(180deg,#07131c 0%,#061018 72%,#030a0f 100%) !important;
+}
+#hero .hero-modern-grid{
+  min-height:calc(100vh - 130px);
+  grid-template-columns:1.13fr .62fr !important;
+  align-items:center !important;
+  padding-bottom:220px;
+}
+#hero .hero-modern-copy{position:relative;z-index:5}
+#hero .hero-modern-portrait{
+  z-index:5;
+  box-shadow:0 28px 70px rgba(0,0,0,.28);
+}
+
+/* The wave occupies only the lower hero band, behind no portrait/text. */
+#orbionWave{
+  position:absolute;
+  z-index:2;
+  left:0;
+  right:0;
+  bottom:64px;
+  width:100%;
+  height:245px;
+  pointer-events:none;
+  opacity:.94;
+}
+
+/* Keep technical badges with the text, above the wave. */
+#hero .hero-badges{position:relative;z-index:5}
+
+@media(max-width:850px){
+  #hero{padding-top:82px !important}
+  #hero .hero-modern-grid{padding-bottom:205px;min-height:auto}
+  #orbionWave{height:190px;bottom:82px}
+}
+</style>
+<style>
+/* Compact E / H / S electromagnetic pointer — active ONLY inside the wave band */
+#waveFieldPointer{
+  position:absolute;
+  z-index:6;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  overflow:visible;
+}
+#waveFieldPointer .wave-ehs{
+  opacity:0;
+  transition:opacity .16s ease;
+}
+#waveFieldPointer .wave-ehs.active{opacity:.92}
+#waveFieldPointer .ehs-line,
+#waveFieldPointer .ehs-circle,
+#waveFieldPointer .ehs-mark{
+  fill:none;
+  stroke:#54f0d1;
+  stroke-width:1.25;
+  vector-effect:non-scaling-stroke;
+}
+#waveFieldPointer .ehs-arrow{fill:#54f0d1}
+#waveFieldPointer .ehs-circle{fill:rgba(7,19,28,.78)}
+#waveFieldPointer .ehs-label{
+  fill:rgba(255,255,255,.86);
+  font-family:Inter,Arial,sans-serif;
+  font-size:12px;
+  font-weight:600;
+}
+</style>
+<style>
+/* ═══ Studio Zero Wave + Studio 4 Spectrum harmony layer ═══ */
+#hero #labHUD{
+  position:absolute !important;
+  z-index:1 !important;
+  left:0 !important;
+  right:auto !important;
+  top:60px !important;
+  width:61% !important;
+  height:58% !important;
+  opacity:.34 !important;
+  pointer-events:none !important;
+  -webkit-mask-image:
+    linear-gradient(to right,#000 0%,#000 68%,transparent 100%),
+    linear-gradient(to bottom,#000 0%,#000 70%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:
+    linear-gradient(to right,#000 0%,#000 68%,transparent 100%),
+    linear-gradient(to bottom,#000 0%,#000 70%,transparent 100%);
+  mask-composite:intersect;
+}
+#hero .scan{
+  position:absolute !important;
+  z-index:1 !important;
+  left:0 !important;
+  right:auto !important;
+  top:60px !important;
+  width:61% !important;
+  height:58% !important;
+  opacity:.28 !important;
+  pointer-events:none !important;
+  -webkit-mask-image:linear-gradient(to right,#000 0%,#000 68%,transparent 100%);
+  mask-image:linear-gradient(to right,#000 0%,#000 68%,transparent 100%);
+}
+
+/* Copy and portrait remain crisp; spectrum is atmospheric, not foreground UI. */
+#hero .hero-modern-copy{position:relative;z-index:5}
+#hero .hero-modern-portrait{position:relative;z-index:5;isolation:isolate}
+
+/* Preserve the already-approved lower wave and its E/H/S cursor exactly. */
+#orbionWave{z-index:2 !important}
+#waveFieldPointer{z-index:6 !important}
+
+@media(max-width:850px){
+  #hero #labHUD,#hero .scan{
+    width:100% !important;
+    height:45% !important;
+    opacity:.18 !important;
+  }
+}
+</style>
+<style>
+/* FINAL HERO COMPOSITION
+   1) crisp moving spectrum/radar geometry behind copy
+   2) clean portrait
+   3) separate animated wave at bottom + E/H/S cursor
+*/
+#hero #labHUD{
+  left:3% !important;
+  right:auto !important;
+  top:72px !important;
+  width:57% !important;
+  height:66% !important;
+  opacity:.58 !important;
+  z-index:1 !important;
+  pointer-events:none !important;
+  -webkit-mask-image:none !important;
+  mask-image:none !important;
+  filter:none !important;
+  box-shadow:none !important;
+}
+
+/* Remove the shaded moving scan/light band entirely. */
+#hero .scan{
+  display:none !important;
+}
+
+/* Keep content readable without any shaded panel behind it. */
+#hero .hero-modern-copy{
+  position:relative !important;
+  z-index:4 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  filter:none !important;
+}
+
+/* Portrait remains completely clean. */
+#hero .hero-modern-portrait{
+  position:relative !important;
+  z-index:5 !important;
+}
+
+/* Lower wave stays visually separate from the spectrum. */
+#orbionWave{
+  z-index:3 !important;
+  bottom:64px !important;
+  opacity:.94 !important;
+}
+#waveFieldPointer{
+  z-index:6 !important;
+}
+
+@media(max-width:850px){
+  #hero #labHUD{
+    left:0 !important;
+    top:68px !important;
+    width:100% !important;
+    height:48% !important;
+    opacity:.32 !important;
+  }
+}
+</style>
+<style>
+/* HERO SPATIAL REBALANCE
+   Copy toward left edge, portrait toward right edge,
+   RF spectrum centered in the gap and lightly overlapping both.
+   Bottom wave + E/H/S interaction remain untouched.
+*/
+#hero{
+  padding-left:3.2% !important;
+  padding-right:3.2% !important;
+}
+
+#hero .hero-modern-grid{
+  width:100% !important;
+  max-width:none !important;
+  grid-template-columns:minmax(0,1.12fr) minmax(320px,.62fr) !important;
+  column-gap:clamp(110px,10vw,190px) !important;
+  align-items:center !important;
+}
+
+/* Copy sits farther left while keeping a comfortable page margin. */
+#hero .hero-modern-copy{
+  justify-self:start !important;
+  width:min(760px,100%) !important;
+}
+
+/* Portrait is deliberately pushed toward the right margin. */
+#hero .hero-modern-portrait{
+  justify-self:end !important;
+  width:min(470px,100%) !important;
+}
+
+/* Central RF instrument layer:
+   extends slightly beneath the right side of copy and left side of portrait,
+   leaving the majority of both completely clean. */
+#hero #labHUD{
+  left:31% !important;
+  top:80px !important;
+  width:43% !important;
+  height:64% !important;
+  opacity:.64 !important;
+  z-index:1 !important;
+  pointer-events:none !important;
+  -webkit-mask-image:none !important;
+  mask-image:none !important;
+  filter:none !important;
+}
+
+/* Content remains above the spectrum; spectrum reads as background instrumentation. */
+#hero .hero-modern-copy,
+#hero .hero-modern-portrait{
+  z-index:4 !important;
+}
+
+/* Preserve the clean separation of the lower wave. */
+#orbionWave{z-index:3 !important}
+#waveFieldPointer{z-index:6 !important}
+
+@media(max-width:1050px){
+  #hero .hero-modern-grid{
+    column-gap:70px !important;
+  }
+  #hero #labHUD{
+    left:28% !important;
+    width:48% !important;
+    opacity:.52 !important;
+  }
+}
+
+@media(max-width:850px){
+  #hero{padding-left:5% !important;padding-right:5% !important}
+  #hero .hero-modern-grid{
+    grid-template-columns:1fr !important;
+    column-gap:0 !important;
+  }
+  #hero .hero-modern-portrait{
+    justify-self:start !important;
+  }
+  #hero #labHUD{
+    left:7% !important;
+    top:80px !important;
+    width:86% !important;
+    height:44% !important;
+    opacity:.30 !important;
+  }
+}
+</style>
+<style>
+/* Poynting-vector emphasis: S follows the orange energy-flow direction. */
+#waveFieldPointer .ehs-s{stroke:#ffb858 !important}
+#waveFieldPointer .ehs-s-arrow{fill:#ffb858 !important}
+#waveFieldPointer .ehs-s-label{fill:#ffb858 !important}
+</style>
+<style>
+/* SELECTED VERSION — hero proportion refinement only */
+#hero .hero-name{
+  font-size:clamp(52px,6.15vw,88px) !important;
+  line-height:.88 !important;
+  letter-spacing:-.055em !important;
+}
+
+/* Slightly calmer supporting title; body copy remains unchanged. */
+#hero .hero-title{
+  font-size:14px !important;
+  line-height:1.55 !important;
+}
+
+/* Increase portrait size without changing its engineering frame treatment. */
+#hero .hero-modern-portrait{
+  width:min(525px,100%) !important;
+}
+
+/* Give the larger portrait enough column width while preserving the central spectrum gap. */
+#hero .hero-modern-grid{
+  grid-template-columns:minmax(0,1.08fr) minmax(380px,.70fr) !important;
+}
+
+@media(max-width:1050px){
+  #hero .hero-name{
+    font-size:clamp(50px,6.8vw,76px) !important;
+  }
+  #hero .hero-modern-portrait{
+    width:min(500px,100%) !important;
+  }
+}
+
+@media(max-width:850px){
+  #hero .hero-name{
+    font-size:clamp(46px,11vw,66px) !important;
+  }
+  #hero .hero-modern-portrait{
+    width:min(470px,100%) !important;
+  }
+}
+</style>
+<style>
+/* HERO TEXT COMPACTION v2 — portrait, spectrum, wave and cursor unchanged */
+#hero .hero-name{
+  font-size:clamp(46px,5.15vw,74px) !important;
+  line-height:.90 !important;
+  margin:14px 0 !important;
+  letter-spacing:-.05em !important;
+}
+#hero .hero-title{
+  font-size:12.5px !important;
+  line-height:1.48 !important;
+  margin-top:10px !important;
+  margin-bottom:10px !important;
+}
+#hero .hero-value{
+  font-size:13px !important;
+  line-height:1.55 !important;
+  max-width:680px !important;
+  margin-top:12px !important;
+  margin-bottom:12px !important;
+}
+#hero .hero-label{
+  font-size:9px !important;
+  margin-bottom:8px !important;
+}
+#hero .hero-actions{
+  margin:18px 0 !important;
+}
+#hero .hero-modern-copy{
+  align-self:center !important;
+}
+
+@media(max-width:1050px){
+  #hero .hero-name{font-size:clamp(44px,5.8vw,66px) !important}
+  #hero .hero-title{font-size:12px !important}
+  #hero .hero-value{font-size:12.5px !important}
+}
+@media(max-width:850px){
+  #hero .hero-name{font-size:clamp(42px,9.5vw,60px) !important}
+}
+</style>
+<style>
+/* V4 — separate the lower Poynting-flow wave from the circular spectrum */
+#orbionWave{
+  bottom:8px !important;
+}
+</style>
+
+<style id="studio-zero-integration-fix">
+/* Final isolation reset: neutralize legacy portfolio hero geometry that leaked into Studio Zero. */
+#hero .hero-modern-grid{position:relative!important;align-self:auto!important;}
+#hero .hero-modern-copy{position:relative!important;max-width:none!important;align-self:center!important;transform:none!important;}
+#hero .hero-modern-details{position:static!important;width:auto!important;max-width:none!important;margin-top:0!important;}
+#hero .hero-modern-portrait{
+  min-height:0!important;height:auto!important;align-self:center!important;
+  display:block!important;transform:none!important;overflow:visible!important;
+  justify-content:initial!important;align-items:initial!important;
+}
+#hero .hero-modern-portrait>a{display:block!important;line-height:0!important;}
+#hero .hero-modern-portrait img{
+  width:100%!important;height:auto!important;object-fit:initial!important;object-position:initial!important;
+  border-radius:0!important;border:0!important;box-shadow:none!important;
+}
+/* Studio Zero owns both pseudo-elements; remove the legacy portrait glow/accent geometry. */
+#hero .hero-modern-portrait::before{
+  width:auto!important;height:auto!important;border-radius:0!important;background:none!important;
+  filter:none!important;box-shadow:none!important;
+}
+#hero .hero-modern-portrait::after{
+  right:14px!important;bottom:14px!important;width:auto!important;height:auto!important;
+}
+/* Legacy hero SVG/canvas layers must never compete with Studio Zero instrumentation. */
+#hero .hero-field,#hero .hero-wave-field,#hero #emCanvas{display:none!important;}
+</style>
+
+
+
+<style id="studio12-neural-field-style">
+/* Studio 12 neural interaction — each post-hero section owns its own field. */
+.neural-section-host {
+  position: relative !important;
+  isolation: isolate;
+  overflow: hidden;
+}
+.neural-section-host > :not(.sectionNeuralField) {
+  position: relative;
+  z-index: 2;
+}
+.sectionNeuralField {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .72;
+}
+#hero { position: relative; z-index: 20; }
+#nav { z-index: 200; }
+@media (max-width: 1100px) {
+  .sectionNeuralField { opacity: .52; }
+}
+@media (max-width: 850px), (hover: none), (pointer: coarse),
+       (prefers-reduced-motion: reduce) {
+  .sectionNeuralField { display: none; }
+}
+</style>
+
+
+<style id="portrait-hand-cursor">
+.hero-modern-portrait a,
+.hero-modern-portrait a img {
+  cursor: pointer !important;
+}
+</style>
+
 </head>
 <body>
 
@@ -2022,51 +2547,8 @@ footer {
 
 <!-- ═══ HERO ══════════════════════════════════════════ -->
 <section id="hero" aria-label="Introduction">
-<canvas id="emCanvas" aria-hidden="true"></canvas>
-<svg class="hero-field hero-wave-field" viewBox="0 0 1440 800" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 
- <!-- Interactive E / H / S field indicator -->
-<g class="em-field-indicator" transform="translate(720 450)">
 
-  <!-- E-field -->
-  <line class="em-e-line"
-        x1="0" y1="0"
-        x2="0" y2="-50" />
-
-  <polygon class="em-e-arrow"
-           points="-5,-41 0,-52 5,-41" />
-
-  <text class="em-field-label"
-        x="8" y="-42">E</text>
-
-  <!-- H-field: into the screen -->
-  <circle class="em-h-circle"
-          cx="0" cy="19" r="6.5" />
-
-  <line class="em-h-mark"
-        x1="-3.5" y1="15.5"
-        x2="3.5" y2="22.5" />
-
-  <line class="em-h-mark"
-        x1="3.5" y1="15.5"
-        x2="-3.5" y2="22.5" />
-
-  <text class="em-field-label"
-        x="10" y="23">H</text>
-
-  <!-- Poynting vector -->
-  <line class="em-s-line"
-        x1="0" y1="0"
-        x2="58" y2="0" />
-
-  <polygon class="em-s-arrow"
-           points="58,0 47,-5 47,5" />
-
-  <text class="em-field-label"
-        x="63" y="4">S</text>
-
-</g>
-</svg>
 
    <div style="position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;">
 
@@ -2116,6 +2598,7 @@ footer {
 
 </div>
 </section>
+
 <!-- ═══ METRICS ═══════════════════════════════════════ -->
 <div id="metrics" role="region" aria-label="Profile at a glance">
   <div class="metrics-grid">
@@ -2137,6 +2620,168 @@ footer {
     </div>
   </div>
 </div>
+<!-- Studio Zero hero visualization only -->
+
+
+
+
+
+
+<canvas id="orbionWave" aria-hidden="true"></canvas>
+<script>
+(()=>{
+  const hero=document.getElementById('hero');
+  const c=document.getElementById('orbionWave');
+  if(!hero||!c)return;
+  hero.appendChild(c);
+  const x=c.getContext('2d');
+  let t=0,dpr=1;
+
+  function size(){
+    dpr=Math.min(window.devicePixelRatio||1,2);
+    const r=c.getBoundingClientRect();
+    c.width=Math.max(1,Math.round(r.width*dpr));
+    c.height=Math.max(1,Math.round(r.height*dpr));
+    x.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  function draw(){
+    const w=c.clientWidth,h=c.clientHeight;
+    x.clearRect(0,0,w,h);
+    t+=.008;
+    const base=h*.51;
+
+    x.save();
+    x.lineCap='round';
+    x.lineJoin='round';
+    x.globalCompositeOperation='lighter';
+
+    /* Poynting-flow streamlines: same Wave 3 language, fitted into the
+       already-approved lower wave band of Studio Zero. */
+    for(let k=0;k<9;k++){
+      x.beginPath();
+      for(let px=-20;px<w+20;px+=4){
+        const u=px/w;
+        const offset=(k-4)*7.5;
+        const env=.45+.55*Math.sin((u*.72-t*.07+k*.06)*Math.PI*2);
+        const y=base+offset
+          +Math.sin(u*12.5-t*(.8+k*.035)+k*.38)*(12+19*env)
+          +Math.sin(u*4+t*.22)*6;
+        px<0?x.moveTo(px,y):x.lineTo(px,y);
+      }
+      x.shadowColor='rgba(84,240,209,.42)';
+      x.shadowBlur=k===4?9:3;
+      x.strokeStyle=`rgba(84,240,209,${.15+Math.abs(4-k)*.022+(k===4?.50:0)})`;
+      x.lineWidth=k===4?2.2:1;
+      x.stroke();
+    }
+
+    /* Orange travelling S-direction markers. */
+    x.shadowBlur=0;
+    for(let i=0;i<7;i++){
+      const u=(t*.055+i/7)%1;
+      const px=u*w;
+      const env=.45+.55*Math.sin((u*.72-t*.07+4*.06)*Math.PI*2);
+      const y=base
+        +Math.sin(u*12.5-t*(.8+4*.035)+4*.38)*(12+19*env)
+        +Math.sin(u*4+t*.22)*6;
+      x.beginPath();
+      x.moveTo(px-7,y-3.5);
+      x.lineTo(px,y);
+      x.lineTo(px-7,y+3.5);
+      x.strokeStyle='rgba(255,184,88,.78)';
+      x.lineWidth=1.15;
+      x.stroke();
+    }
+
+    x.restore();
+    requestAnimationFrame(draw);
+  }
+
+  size();
+  addEventListener('resize',size,{passive:true});
+  draw();
+})();
+</script>
+
+
+<svg id="waveFieldPointer" viewBox="0 0 1440 800" preserveAspectRatio="none" aria-hidden="true">
+  <g class="wave-ehs" transform="translate(720 650)">
+    <line class="ehs-line" x1="0" y1="0" x2="0" y2="-30"/>
+    <polygon class="ehs-arrow" points="-3.5,-24 0,-32 3.5,-24"/>
+    <text class="ehs-label" x="6" y="-24">E</text>
+
+    <circle class="ehs-circle" cx="0" cy="12" r="4.5"/>
+    <line class="ehs-mark" x1="-2.5" y1="9.5" x2="2.5" y2="14.5"/>
+    <line class="ehs-mark" x1="2.5" y1="9.5" x2="-2.5" y2="14.5"/>
+    <text class="ehs-label" x="7.5" y="15.5">H</text>
+
+    <line class="ehs-line ehs-s" x1="0" y1="0" x2="34" y2="0"/>
+    <polygon class="ehs-arrow ehs-s-arrow" points="34,0 27,-3.5 27,3.5"/>
+    <text class="ehs-label ehs-s-label" x="39" y="4">S</text>
+  </g>
+</svg>
+<script>
+(()=>{
+  const hero=document.getElementById('hero');
+  const wave=document.getElementById('orbionWave');
+  const svg=document.getElementById('waveFieldPointer');
+  const marker=svg?.querySelector('.wave-ehs');
+  if(!hero||!wave||!svg||!marker)return;
+
+  hero.appendChild(svg);
+
+  if(!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+
+  hero.addEventListener('mousemove',e=>{
+    const wr=wave.getBoundingClientRect();
+
+    /* Strict activation zone: exactly the canvas area occupied by the wave system. */
+    const inside=e.clientX>=wr.left && e.clientX<=wr.right &&
+                 e.clientY>=wr.top  && e.clientY<=wr.bottom;
+
+    if(!inside){
+      marker.classList.remove('active');
+      return;
+    }
+
+    const hr=hero.getBoundingClientRect();
+    const x=((e.clientX-hr.left)/hr.width)*1440;
+    const y=((e.clientY-hr.top)/hr.height)*800;
+    marker.setAttribute('transform',`translate(${x.toFixed(1)} ${y.toFixed(1)})`);
+    marker.classList.add('active');
+  });
+
+  hero.addEventListener('mouseleave',()=>marker.classList.remove('active'));
+})();
+</script>
+
+<canvas id="labHUD"></canvas>
+<script>
+(()=>{const c=document.getElementById('labHUD'),x=c.getContext('2d');let t=0;
+function sz(){const d=Math.min(devicePixelRatio||1,2),r=c.getBoundingClientRect();c.width=r.width*d;c.height=r.height*d;x.setTransform(d,0,0,d,0,0)}
+function draw(){let w=c.clientWidth,h=c.clientHeight;x.clearRect(0,0,w,h);t+=.015;
+x.strokeStyle='rgba(84,240,209,.65)';x.lineWidth=1;
+for(let r=45;r<Math.min(w,h)*.48;r+=42){x.beginPath();x.arc(w*.55,h*.48,r,0,Math.PI*2);x.stroke()}
+x.beginPath();for(let i=0;i<360;i++){let a=i*Math.PI/180,rr=80+34*Math.sin(3*a+t)+15*Math.sin(7*a-t*.7);let px=w*.55+Math.cos(a)*rr,py=h*.48+Math.sin(a)*rr;i?x.lineTo(px,py):x.moveTo(px,py)}x.strokeStyle='rgba(255,189,89,.75)';x.lineWidth=3;x.stroke();x.lineWidth=1;
+requestAnimationFrame(draw)}
+sz();addEventListener('resize',sz);draw()})();
+</script>
+
+<script>
+(()=>{
+  const hero=document.getElementById('hero');
+  const hud=document.getElementById('labHUD');
+  const scan=document.querySelector('.scan');
+  if(hero&&hud) hero.insertBefore(hud,hero.firstChild);
+  if(hero&&scan) hero.insertBefore(scan,hero.firstChild);
+  /* labHUD was initially measured outside #hero; remeasure after re-parenting. */
+  requestAnimationFrame(()=>window.dispatchEvent(new Event('resize')));
+})();
+</script>
+
+
+
 
 <!-- ═══ ABOUT ═════════════════════════════════════════ -->
 <section id="about" class="section section-light" aria-label="About">
@@ -3102,121 +3747,234 @@ footer {
   });
 </script>
 
-<script>
+<!-- Obsolete pre-Studio-Zero hero animation scripts removed during hero integration. -->
+
+
+
+<script id="studio12-neural-field-script">
 (() => {
-  const canvas = document.getElementById('emCanvas');
-  const heroSection = document.getElementById('hero');
-  if (!canvas || !heroSection) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
 
-  const ctx = canvas.getContext('2d');
-  let mouseX = 0.72;
-  let phaseTime = 0;
-  let animationId = null;
+  const SELECTORS = [
+    '#about', '#value', '#experience', '#projects',
+    '#skills', '#education', '#opportunities', '#contact'
+  ];
+  const LINK_DISTANCE = 116;
+  const POINTER_RADIUS = 165;
+  const SAFE_GUTTER = 24;
+  const MIN_MARGIN = 72;
+  const ABOUT_TOP_GAP = 72;
+  const CONTACT_BOTTOM_GAP = 72;
+  const BASE_DENSITY = 0.000115; // dots per px² of usable side-margin area
+  const MIN_POINTS = 24;
+  const MAX_POINTS = 88;
 
-  function resizeField() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const rect = heroSection.getBoundingClientRect();
+  let mouseX = -9999, mouseY = -9999;
+  let visibleHosts = new Set();
 
-    canvas.width = Math.max(1, Math.round(rect.width * dpr));
-    canvas.height = Math.max(1, Math.round(rect.height * dpr));
-    canvas.style.width = rect.width + 'px';
-    canvas.style.height = rect.height + 'px';
+  const fields = SELECTORS
+    .map(sel => document.querySelector(sel))
+    .filter(Boolean)
+    .map(host => {
+      host.classList.add('neural-section-host');
+      const canvas = document.createElement('canvas');
+      canvas.className = 'sectionNeuralField';
+      canvas.setAttribute('aria-hidden', 'true');
+      host.prepend(canvas);
+      return {
+        host, canvas, ctx: canvas.getContext('2d'),
+        points: [], dpr: 1, width: 0, height: 0,
+        leftLimit: 0, rightLimit: 0
+      };
+    });
 
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  function findContentBounds(field) {
+    const hostRect = field.host.getBoundingClientRect();
+    const candidates = field.host.querySelectorAll(
+      ':scope > .metrics-grid, :scope > .section-inner, :scope > .contact-inner, ' +
+      '.section-inner, .contact-inner, .metrics-grid'
+    );
+    let left = Infinity, right = -Infinity;
+    candidates.forEach(el => {
+      if (el.classList.contains('sectionNeuralField')) return;
+      const r = el.getBoundingClientRect();
+      if (r.width > 200) {
+        left = Math.min(left, r.left - hostRect.left);
+        right = Math.max(right, r.right - hostRect.left);
+      }
+    });
+    if (!isFinite(left) || !isFinite(right)) {
+      const safeWidth = Math.min(1200, field.width * .90);
+      left = (field.width - safeWidth) / 2;
+      right = left + safeWidth;
+    }
+    field.leftLimit = Math.max(0, left - SAFE_GUTTER);
+    field.rightLimit = Math.min(field.width, right + SAFE_GUTTER);
   }
 
-  function drawField() {
-    const w = canvas.clientWidth;
-    const h = canvas.clientHeight;
-    ctx.clearRect(0, 0, w, h);
+  function verticalBounds(field) {
+    const top = field.host.id === 'about' ? ABOUT_TOP_GAP : 0;
+    const bottom = field.host.id === 'contact'
+      ? Math.max(top + 1, field.height - CONTACT_BOTTOM_GAP)
+      : field.height;
+    return { top, bottom };
+  }
 
-    phaseTime += 0.006;
+  function randomPoint(field, side) {
+    const vb = verticalBounds(field);
+    const y = vb.top + Math.random() * Math.max(1, vb.bottom - vb.top);
+    if (side === 'left') {
+      return {
+        side,
+        x: Math.random() * Math.max(1, field.leftLimit),
+        y,
+        vx: (Math.random()-.5)*.085, vy: (Math.random()-.5)*.085
+      };
+    }
+    return {
+      side,
+      x: field.rightLimit + Math.random() * Math.max(1, field.width-field.rightLimit),
+      y,
+      vx: (Math.random()-.5)*.085, vy: (Math.random()-.5)*.085
+    };
+  }
 
-    for (let band = -4; band <= 4; band++) {
-      ctx.beginPath();
+  function seed(field) {
+    const lw = field.leftLimit;
+    const rw = field.width - field.rightLimit;
+    const usableArea = (lw + rw) * field.height;
+    const count = Math.max(MIN_POINTS, Math.min(MAX_POINTS, Math.round(usableArea * BASE_DENSITY)));
+    const total = lw + rw || 1;
+    const leftCount = Math.round(count * lw / total);
+    field.points = [];
+    for (let i=0; i<leftCount; i++) field.points.push(randomPoint(field, 'left'));
+    for (let i=leftCount; i<count; i++) field.points.push(randomPoint(field, 'right'));
+  }
 
-      for (let x = 0; x <= w; x += 8) {
-        const nx = x / w;
-        const amplitude = 34 + 42 * nx;
-        const phase = nx * 8 + phaseTime * 2.4;
-        const focus = Math.exp(-Math.pow((nx - mouseX) * 3.2, 2));
+  function resizeField(field) {
+    const r = field.host.getBoundingClientRect();
+    field.width = Math.max(1, Math.round(r.width));
+    field.height = Math.max(1, Math.round(field.host.offsetHeight));
+    field.dpr = Math.min(window.devicePixelRatio || 1, 2);
+    field.canvas.width = Math.round(field.width * field.dpr);
+    field.canvas.height = Math.round(field.height * field.dpr);
+    field.canvas.style.width = field.width + 'px';
+    field.canvas.style.height = field.height + 'px';
+    field.ctx.setTransform(field.dpr,0,0,field.dpr,0,0);
+    findContentBounds(field);
+    seed(field);
+  }
 
-        const y =
-          h * (0.52 + band * 0.027) +
-          Math.sin(phase + band * 0.24) * amplitude * (0.38 + 0.62 * nx) +
-          Math.sin(phase * 1.7) * 8 * focus;
+  function localPointer(field) {
+    const r = field.host.getBoundingClientRect();
+    return { x: mouseX-r.left, y: mouseY-r.top };
+  }
 
-        if (x === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
+  function keepInMargin(field, p) {
+    const w=field.width, h=field.height;
+    const vb=verticalBounds(field);
+    if (p.y < vb.top) { p.y=vb.top; p.vy=Math.abs(p.vy)*.55; }
+    if (p.y > vb.bottom) { p.y=vb.bottom; p.vy=-Math.abs(p.vy)*.55; }
+    if (p.side === 'left') {
+      if (field.leftLimit < MIN_MARGIN) { Object.assign(p, randomPoint(field,'right')); return; }
+      if (p.x < 0) { p.x=0; p.vx=Math.abs(p.vx)*.55; }
+      if (p.x > field.leftLimit) { p.x=field.leftLimit; p.vx=-Math.abs(p.vx)*.55; }
+    } else {
+      if (w-field.rightLimit < MIN_MARGIN) { Object.assign(p, randomPoint(field,'left')); return; }
+      if (p.x < field.rightLimit) { p.x=field.rightLimit; p.vx=Math.abs(p.vx)*.55; }
+      if (p.x > w) { p.x=w; p.vx=-Math.abs(p.vx)*.55; }
+    }
+  }
+
+  function drawSide(field, side) {
+    const ctx=field.ctx, w=field.width, h=field.height;
+    const pts=field.points.filter(p=>p.side===side);
+    const vb=verticalBounds(field);
+    ctx.save();
+    ctx.beginPath();
+    if (side==='left') ctx.rect(0,vb.top,field.leftLimit,Math.max(0,vb.bottom-vb.top));
+    else ctx.rect(field.rightLimit,vb.top,w-field.rightLimit,Math.max(0,vb.bottom-vb.top));
+    ctx.clip();
+
+    ctx.lineWidth=.75;
+    for(let i=0;i<pts.length;i++) for(let j=i+1;j<pts.length;j++) {
+      const a=pts[i], b=pts[j];
+      const d=Math.hypot(a.x-b.x,a.y-b.y);
+      if(d<LINK_DISTANCE) {
+        const alpha=.27*(1-d/LINK_DISTANCE);
+        ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
+        ctx.strokeStyle=`rgba(0,194,178,${alpha})`; ctx.stroke();
+      }
+    }
+    for(const p of pts) {
+      ctx.beginPath(); ctx.arc(p.x,p.y,2.25,0,Math.PI*2);
+      ctx.fillStyle='rgba(0,194,178,.80)'; ctx.fill();
+    }
+    ctx.restore();
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const field = fields.find(f => f.host === entry.target);
+      if (!field) return;
+      if (entry.isIntersecting) visibleHosts.add(field);
+      else visibleHosts.delete(field);
+    });
+  }, {rootMargin:'120px 0px 120px 0px'});
+
+  fields.forEach(f => observer.observe(f.host));
+
+  window.addEventListener('pointermove', e => {
+    mouseX=e.clientX; mouseY=e.clientY;
+  }, {passive:true});
+  window.addEventListener('pointerleave', () => {
+    mouseX=-9999; mouseY=-9999;
+  }, {passive:true});
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer=setTimeout(()=>fields.forEach(resizeField),120);
+  }, {passive:true});
+
+  const ro = new ResizeObserver(entries => {
+    entries.forEach(entry => {
+      const field=fields.find(f=>f.host===entry.target);
+      if(field) resizeField(field);
+    });
+  });
+  fields.forEach(f => { resizeField(f); ro.observe(f.host); });
+
+  function frame() {
+    for (const field of visibleHosts) {
+      const ctx=field.ctx;
+      ctx.clearRect(0,0,field.width,field.height);
+      const lp=localPointer(field);
+      const vb=verticalBounds(field);
+      const pointerInHost = lp.y>=vb.top && lp.y<=vb.bottom;
+      const pointerInMargin = lp.x<field.leftLimit || lp.x>field.rightLimit;
+
+      for(const p of field.points) {
+        if(pointerInHost && pointerInMargin) {
+          const dx=p.x-lp.x, dy=p.y-lp.y, d=Math.hypot(dx,dy)+1;
+          if(d<POINTER_RADIUS) {
+            const force=(1-d/POINTER_RADIUS)*.058;
+            p.vx+=(dx/d)*force; p.vy+=(dy/d)*force;
+          }
+        }
+        p.vx*=.972; p.vy*=.972;
+        p.x+=p.vx; p.y+=p.vy;
+        keepInMargin(field,p);
       }
 
-      const gradient = ctx.createLinearGradient(0, 0, w, 0);
-      gradient.addColorStop(0, 'rgba(0,194,178,0.025)');
-      gradient.addColorStop(0.45, 'rgba(0,194,178,0.10)');
-      gradient.addColorStop(1, 'rgba(100,246,255,0.34)');
-
-      ctx.strokeStyle = gradient;
-      ctx.lineWidth = 0.8;
-      ctx.stroke();
+      if(field.leftLimit>=MIN_MARGIN) drawSide(field,'left');
+      if(field.width-field.rightLimit>=MIN_MARGIN) drawSide(field,'right');
     }
-
-    for (let i = 0; i < 30; i++) {
-      const x = w * (0.58 + (i % 10) * 0.04);
-      const y = h * (0.34 + Math.floor(i / 10) * 0.11) + Math.sin(phaseTime * 3 + i) * 7;
-      ctx.fillStyle = 'rgba(100,246,255,0.18)';
-      ctx.fillRect(x, y, 1.2, 1.2);
-    }
-
-    animationId = requestAnimationFrame(drawField);
+    requestAnimationFrame(frame);
   }
-
-  resizeField();
-  window.addEventListener('resize', resizeField);
-
-  heroSection.addEventListener('pointermove', (event) => {
-    const rect = heroSection.getBoundingClientRect();
-    mouseX = (event.clientX - rect.left) / rect.width;
-  });
-
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    drawField();
-    if (animationId) cancelAnimationFrame(animationId);
-  } else {
-    drawField();
-  }
+  frame();
 })();
-</script>
-
-<script>
-// Interactive electromagnetic field marker across the full hero
-const hero = document.querySelector('#hero');
-const heroWave = document.querySelector('.hero-wave-field');
-const emField = document.querySelector('.em-field-indicator');
-
-if (
-  hero &&
-  heroWave &&
-  emField &&
-  window.matchMedia('(hover: hover) and (pointer: fine)').matches
-) {
-  hero.addEventListener('mousemove', (event) => {
-    const rect = heroWave.getBoundingClientRect();
-
-    const x = ((event.clientX - rect.left) / rect.width) * 1440;
-    const y = ((event.clientY - rect.top) / rect.height) * 800;
-
-    emField.setAttribute(
-      'transform',
-      `translate(${x.toFixed(1)} ${y.toFixed(1)})`
-    );
-
-    emField.classList.add('active');
-  });
-
-  hero.addEventListener('mouseleave', () => {
-    emField.classList.remove('active');
-  });
-}
 </script>
 
 </body>
